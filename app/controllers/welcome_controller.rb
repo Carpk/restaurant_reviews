@@ -1,4 +1,1 @@
-class WelcomeController < ApplicationController
-
-
-end
+class WelcomeController < ApplicationController; end

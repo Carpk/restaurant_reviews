@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+  margin: 0 0 0 0;
+ }
+
+.home {
+  padding: 20px;
+  background-image: url('/assets/Franklin_Street.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vw;
+}
