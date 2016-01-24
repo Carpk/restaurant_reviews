@@ -4,7 +4,7 @@
   </div>
   <div>
     <% @categories.each do |category| %>
-      <%= category.set %>
+      <%= link_to category.set, category_path(category.set) %>
     <% end %>
   </div>
 </div>
