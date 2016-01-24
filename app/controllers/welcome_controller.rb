@@ -1,1 +1,7 @@
-class WelcomeController < ApplicationController; end
+class WelcomeController < ApplicationController
+
+  def index
+    @categories = Category.all
+  end
+
+end

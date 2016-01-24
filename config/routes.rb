@@ -26,16 +26,17 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  resources :categories, only: [:show]
 
   resources :resturants, only: [:index, :show] do
     resources :reviews, only: [:index, :show]
   end
 
-  resources :admins do
-    resources :resturants do
-      resources :reviews
+  resources :admins, only: [:show] do
+    resources :resturants, only: [:new, :create] do
+      resources :reviews, only: [:new, :create]
     end
-    resources :categories
+    resources :categories, only: [:create]
   end
 
   # Example resource route with sub-resources:
