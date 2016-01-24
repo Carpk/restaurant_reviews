@@ -14,7 +14,16 @@
  *= require_self
  */
 
+@font-face {
+    font-family: 'defused';
+    src: url(<%= asset_path('defused.eot') %>);
+    src: url(<%= asset_path('defused.ttf') %>) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
  body {
+  font-family: 'defused';
   margin: 0 0 0 0;
  }
 
@@ -23,5 +32,5 @@
   background-image: url('/assets/Franklin_Street.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vw;
+  height: 93vh;
 }

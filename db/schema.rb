@@ -17,47 +17,71 @@ ActiveRecord::Schema.define(version: 20160121004832) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
+    t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "areas", force: :cascade do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "atmospheres", force: :cascade do |t|
-    t.string "type"
-    t.string "description"
+    t.string   "set"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.text   "description"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "type"
+    t.string   "set"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "title"
-    t.text   "description"
+    t.integer  "resturant_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.string "address"
+    t.integer  "review_id"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "resturants", force: :cascade do |t|
-    t.string  "name"
-    t.integer "score"
+  create_table "restaurants", force: :cascade do |t|
+    t.integer  "area_id"
+    t.string   "name"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string  "title"
-    t.string  "entree"
-    t.integer "price"
-    t.integer "score"
-    t.text    "body"
+    t.integer  "resturant_id"
+    t.string   "title"
+    t.string   "entree"
+    t.integer  "price"
+    t.integer  "score"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
