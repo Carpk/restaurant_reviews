@@ -1,7 +1,7 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
-      t.references :resturant
+      t.references :restaurant
       t.string     :title
       t.string     :entree
       t.integer    :price

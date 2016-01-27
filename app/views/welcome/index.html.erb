@@ -1,8 +1,15 @@
-<div>
-  <div>
-    <h1>Chicago Lunch Box</h1>
+<div class="row">
+
+  <div class="feature-box col-sm-12">
+    <h1>Feature</h1>
+
+    <h1>Latest</h1>
+
   </div>
-  <div>
+
+
+  <div class="feature-box col-sm-12">
+    <h1>Categories</h1>
     <% @categories.each do |category| %>
       <%= link_to category.set, category_path(category.set) %>
     <% end %>

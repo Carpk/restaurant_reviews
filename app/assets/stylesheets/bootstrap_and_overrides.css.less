@@ -31,11 +31,25 @@
 // Example:
 // @link-color: #ff0000;
 
+@base-background: rgba(34, 34, 34, 0.9);
+@base-font-color: #E4E4E4;
 
- body {
+body {
   font-family: 'defused';
   margin: 0 0 0 0;
- }
+}
+
+.feature-box {
+  background-color: @base-background;
+  color: @base-font-color;
+  margin: 5px 5px 5px 5px;
+  padding: 1px 5px 5px 27px;
+  border-radius: 5px;
+}
+
+.feature-box a{
+  /*margin-right: 6px;*/
+}
 
 .home {
   padding: 20px;

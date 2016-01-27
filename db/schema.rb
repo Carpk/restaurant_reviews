@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "resturant_id"
+    t.integer  "restaurant_id"
     t.string   "title"
     t.string   "entree"
     t.integer  "price"
