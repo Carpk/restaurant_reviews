@@ -28,12 +28,12 @@ Rails.application.routes.draw do
   #   end
   resources :categories, only: [:show]
 
-  resources :resturants, only: [:index, :show] do
+  resources :restaurants, only: [:index, :show] do
     resources :reviews, only: [:index, :show]
   end
 
   resources :admins, only: [:show] do
-    resources :resturants, only: [:new, :create] do
+    resources :restaurants, only: [:new, :create] do
       resources :reviews, only: [:new, :create]
     end
     resources :categories, only: [:create]

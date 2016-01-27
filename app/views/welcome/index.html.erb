@@ -5,6 +5,8 @@
 
     <h1>Latest</h1>
 
+    <%= link_to @latest.title, restaurant_review_path(@latest.restaurant.name, @latest.title) %><br>
+    <%= link_to @latest.restaurant.name, restaurant_path(@latest.restaurant.name) %>
   </div>
 
 

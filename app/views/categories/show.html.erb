@@ -1,5 +1,7 @@
 
+<div class="feature-box">
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant.name, restaurant_path(restaurant.name) %>
+  <% end %>
+</div>
 
-<% @restaurants.each do |restuarant| %>
-  <%= restuarant.name %>
-<% end %>
