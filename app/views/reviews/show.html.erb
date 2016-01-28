@@ -1,1 +1,8 @@
-show.html.erb
+<div class="feature-box">
+  <h2><%= @review.restaurant.name %></h2><br>
+  <h4><%= @review.title %></h4>
+  <%= @review.entree %>
+  Price: $<%= @review.price %>
+  Score: <%= @review.score%>
+  <%= @review.body %>
+</div>
