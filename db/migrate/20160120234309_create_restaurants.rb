@@ -4,6 +4,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.references :area
       t.string  :name
       t.integer :score
+      t.float   :latitude
+      t.float   :longitude
 
       t.timestamps
     end
