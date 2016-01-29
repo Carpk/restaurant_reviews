@@ -1,0 +1,33 @@
+<div class="feature-box">
+
+  <div class=""style='width: 500px;'>
+    <div id="map" style='width: 500px; height: 350px;'></div>
+  </div>
+
+<% @restaurants.each do |place| %>
+  <%= link_to place.name, restaurant_path(place.name) %>
+<%end%>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 41.879275201550634,
+        "lng": -87.66173601150513,
+        "picture": {
+          "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(7)
+  });
+</script>
+
+
+</div>

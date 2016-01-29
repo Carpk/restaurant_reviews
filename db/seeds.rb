@@ -12,13 +12,20 @@ brid = Area.create(name: "Bridgeport")
 humb = Area.create(name: "Humboldt Park")
 chin = Area.create(name: "Chinatown")
 
-rico = Restaurant.create(name: "Ricobene's", score: 8, area_id: brid.id)
-punk = Restaurant.create(name: "Punky's", score: 5, area_id: brid.id)
-wing = Restaurant.create(name: "Triple Crown", score: 7, area_id: chin.id)
-lock = Restaurant.create(name: "Lockdown", score: 10, area_id: humb.id)
-braz = Restaurant.create(name: "Brazilian Bowl Grill", score: 10, area_id: boys.id)
-chkh = Restaurant.create(name: "Chicken Hut", score: 3, area_id: boys.id)
-flub = Restaurant.create(name: "Flub A Dub Chub's", score: 8, area_id: lake.id)
+rico = Restaurant.create(name: "Ricobene's", score: 8, latitude: 41.84573199089699,
+                         longitude: -87.63384103775024, area_id: brid.id)
+punk = Restaurant.create(name: "Punky's", score: 5, latitude: 41.84526843,
+                         longitude: -87.64181256, area_id: brid.id)
+wing = Restaurant.create(name: "Triple Crown", score: 7, latitude: 41.85242126,
+                         longitude: -87.63179183, area_id: chin.id)
+lock = Restaurant.create(name: "Lockdown", score: 10, latitude: 41.9001576,
+                         longitude: -87.687336, area_id: humb.id)
+braz = Restaurant.create(name: "Brazilian Bowl Grill", score: 10, latitude: 41.94027581,
+                         longitude: -87.64464498, area_id: boys.id)
+chkh = Restaurant.create(name: "Chicken Hut", score: 3, latitude: 41.94017605,
+                         longitude: -87.64460474, area_id: boys.id)
+flub = Restaurant.create(name: "Flub A Dub Chub's", score: 8, latitude: 41.93718427,
+                         longitude: -87.64414206, area_id: lake.id)
 
 burg = Category.create(set: "Burger")
 pizz = Category.create(set: "Pizza")

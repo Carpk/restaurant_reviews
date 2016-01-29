@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   create_table "restaurants", force: :cascade do |t|
     t.integer  "area_id"
     t.string   "name"
+    t.text     "body"
     t.integer  "score"
     t.float    "latitude"
     t.float    "longitude"

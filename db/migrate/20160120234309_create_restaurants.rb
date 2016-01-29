@@ -3,6 +3,7 @@ class CreateRestaurants < ActiveRecord::Migration
     create_table :restaurants do |t|
       t.references :area
       t.string  :name
+      t.text    :body
       t.integer :score
       t.float   :latitude
       t.float   :longitude
