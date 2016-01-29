@@ -1,1 +1,6 @@
-class RestaurantsController < ApplicationController; end
+class RestaurantsController < ApplicationController
+
+  def new
+
+  end
+end
