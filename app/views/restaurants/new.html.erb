@@ -2,8 +2,12 @@
   <h2>Create a new Restaurant:</h2>
 
   <%= form_for @restaurant, url: admin_restaurants_path, html: {class: "nifty_form"} do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_area :body, size: "60x12" %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br>
+    <%= f.label :score %>:
+    <%= f.number_field :score %><br>
+    <%= f.label :notes %>:
+    <%= f.text_area :body, size: "20x6" %><br>
     <%= f.submit "Create" %>
   <% end %>
 
@@ -19,9 +23,9 @@
           "lat": 41.879275201550634,
           "lng": -87.66173601150513,
           "picture": {
-            "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-            "width":  32,
-            "height": 32
+            "url": "http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png",
+            "width":  22,
+            "height": 40
           },
           "infowindow": "hello!"
         }

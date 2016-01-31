@@ -56,11 +56,16 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.integer  "resturant_id"
     t.string   "title"
-    t.text     "description"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "lists_restaurants", id: false, force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.integer "list_id",       null: false
+    t.text    "body"
   end
 
   create_table "pictures", force: :cascade do |t|

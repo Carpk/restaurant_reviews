@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  resources :blogs, only: [:index, :show]
+  resources :lists, only: [:index, :show]
   resources :categories, only: [:show]
 
   resources :restaurants, only: [:index, :show] do
@@ -36,7 +38,9 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:new, :create] do
       resources :reviews, only: [:new, :create]
     end
-    resources :categories, only: [:create]
+    resources :categories, only: [:new, :create]
+    resources :lists, only: [:new, :create]
+    resources :blogs, only: [:new, :create]
   end
 
   # Example resource route with sub-resources:

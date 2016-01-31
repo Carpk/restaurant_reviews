@@ -45,8 +45,6 @@ braz.categories << lati
 chkh.categories << chic
 flub.categories << burg
 
-List.create(title: "Savory BBQ Joints", description: "")
-List.create(title: "Best Pizza", description: "")
 
 Blog.create(title: "Finding great Pizza", description: "")
 Blog.create(title: "Hidden Chinese Secrets", description: "Two words: Chinese Bread")
@@ -55,6 +53,10 @@ Atmospheres.create(set: "loud")
 Atmospheres.create(set: "romantic")
 Atmospheres.create(set: "casual")
 Atmospheres.create(set: "small")
+
+List.create(title: "Awesome burgers", body: "Our list of epic burgers!").restaurants << lock << punk
+List.create(title: "Savory BBQ Joints", body: "Tasty BBQ").restaurants << wing
+List.create(title: "Best Pizza", body: "Hell yeah! Pizza").restaurants << rico
 
 Review.create(restaurant: punk, title: "They Bubba burgers",
               entree: "Double Cheeseburger", price: "12", score: "6",

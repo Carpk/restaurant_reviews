@@ -1,9 +1,8 @@
 class CreateLists < ActiveRecord::Migration
   def change
     create_table :lists do |t|
-      t.references :resturant
       t.string     :title
-      t.text       :description
+      t.text       :body
 
       t.timestamps
     end
