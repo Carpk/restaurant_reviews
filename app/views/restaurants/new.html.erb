@@ -1,6 +1,7 @@
 <div class="feature-box row">
   <h2>Create a new Restaurant:</h2>
 
+  <div class="col-md-1"></div>
   <div class="col-md-4">
     <%= form_for @restaurant, url: admin_restaurants_path, html: {class: "nifty_form"} do |f| %>
       <%= f.label :name %>:<br>
@@ -9,35 +10,19 @@
       <%= f.number_field :score, :class => 'inpt-data' %><br>
       <%= f.label :notes %>:<br>
       <%= f.text_area :body, size: "20x6", :class => 'inpt-data' %><br>
+      <%= f.hidden_field :latitude, :class => '', :id => "centre_latitude" %>
+      <%= f.hidden_field :longitude, :class => '', :id => "centre_longitude" %>
       <%= f.submit "Create", :class => 'btn btn-default' %>
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class=""style='width: 500px;'>
       <div id="map" style='width: 500px; height: 350px;'></div>
     </div>
-
-    <script type="text/javascript">
-      // handler = Gmaps.build('Google');
-      // handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      //   markers = handler.addMarkers([
-      //     {
-      //       "lat": 41.879275201550634,
-      //       "lng": -87.66173601150513,
-      //       "picture": {
-      //         "url": "http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png",
-      //         "width":  22,
-      //         "height": 40
-      //       },
-      //       "infowindow": "hello!"
-      //     }
-      //   ]);
-      //   handler.bounds.extendWith(markers);
-      //   handler.fitMapToBounds();
-      //   handler.getMap().setZoom(12);
-      // });
-    </script>
+    <div class="col-md-1"></div>
+  </div>
+</div>
 
     <script type="text/javascript">
       var handler = Gmaps.build('Google');
@@ -106,5 +91,3 @@
         Gmaps.markers = [];
       }
     </script>
-  </div>
-</div>
