@@ -22,6 +22,12 @@ class RestaurantsController < ApplicationController
     redirect_to admin_path(1)
   end
 
+  def destroy
+    puts params
+
+    redirect_to admin_path(1)
+  end
+
   private
 
   def restaurant_params
