@@ -18,6 +18,8 @@ class RestaurantsController < ApplicationController
 
   def create
     Restaurant.create(restaurant_params)
+
+    redirect_to admin_path(1)
   end
 
   private

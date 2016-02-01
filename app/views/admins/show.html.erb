@@ -1,1 +1,24 @@
-show.html.erb
+<div class="feature-box">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Reviews</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @restaurants.each do |place| %>
+        <tr>
+          <td><%=place.id%></td>
+          <td><%=place.name%></td>
+          <td><%=place.score%></td>
+          <td><%=place.reviews.count%></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

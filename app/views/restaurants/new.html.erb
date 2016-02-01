@@ -10,8 +10,8 @@
       <%= f.number_field :score, :class => 'inpt-data' %><br>
       <%= f.label :notes %>:<br>
       <%= f.text_area :body, size: "20x6", :class => 'inpt-data' %><br>
-      <%= f.hidden_field :latitude, :class => '', :id => "centre_latitude" %>
-      <%= f.hidden_field :longitude, :class => '', :id => "centre_longitude" %>
+      <%= f.hidden_field :latitude, :id => "centre_latitude" %>
+      <%= f.hidden_field :longitude, :id => "centre_longitude" %>
       <%= f.submit "Create", :class => 'btn btn-default' %>
     <% end %>
   </div>
