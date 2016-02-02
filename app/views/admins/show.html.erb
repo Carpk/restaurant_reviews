@@ -16,7 +16,9 @@
           <td><%=place.id%></td>
           <td><%=place.name%></td>
           <td><%=place.score%></td>
-          <td><%=place.reviews.count%></td>
+          <td>
+            <%= link_to place.reviews.count, admin_restaurant_reviews_path(1, place.name) %>
+          </td>
           <td>
             <%= link_to "Delete", admin_restaurant_path(1, place), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>-
             <%= link_to "Edit", edit_admin_restaurant_path(1, place) %>-

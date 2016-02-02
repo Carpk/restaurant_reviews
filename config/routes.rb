@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: [:show] do
     resources :restaurants, except: [:index, :show] do
-      resources :reviews, only: [:new, :create]
+      resources :reviews
     end
     resources :categories, only: [:new, :create]
     resources :lists, only: [:new, :create]

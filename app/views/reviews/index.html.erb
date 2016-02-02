@@ -1,0 +1,14 @@
+<div class="feature-box">
+  <h2>Reviews for <%@reviews.first.restaurant.name%>:</h2>
+  <div class="row">
+    <% @reviews.each do |review| %>
+    <div class="col-md-4">
+      <%= review.title %><br>
+      <%= review.entree %><br>
+      Score: <%= review.score %>
+      Price :<%= review.price %><br>
+      <%= review.body %>
+    </div>
+    <% end %>
+  </div>
+</div>

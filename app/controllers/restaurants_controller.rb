@@ -23,7 +23,8 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    puts params
+    place = Restaurant.find(params[:id])
+    place.destroy if place
 
     redirect_to admin_path(1)
   end
