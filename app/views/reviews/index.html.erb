@@ -1,13 +1,16 @@
 <div class="feature-box">
-  <h2>Reviews for <%@reviews.first.restaurant.name%>:</h2>
+  <h2>Reviews for: <%= @reviews.first.restaurant.name%></h2>
   <div class="row">
     <% @reviews.each do |review| %>
     <div class="col-md-4">
-      <%= review.title %><br>
-      <%= review.entree %><br>
-      Score: <%= review.score %>
-      Price :<%= review.price %><br>
-      <%= review.body %>
+      <p><%= review.title %></p>
+      <p><%= review.entree %></p>
+      <p>Score:<span class="badge"><%= review.score %></span></p>
+      <p>Price: $<%= review.price %></p>
+      <p>Details:<br>
+      <%= review.body %></p>
+      <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-primary" %>
+      <%= link_to "Destroy", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-danger" %>
     </div>
     <% end %>
   </div>
