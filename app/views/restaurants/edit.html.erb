@@ -1,4 +1,101 @@
-<div class="feature-box">
+<div class="feature-box row">
+  <h2>Edit Restaurant:</h2>
 
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <%= form_for @restaurant, url: admin_restaurant_path, html: {role: "form"} do |f| %>
+      <div class="form-group">
+      <%= f.label :name %>:<br>
+      <%= f.text_field :name, :class => 'inpt-data' %><br>
+      </div>
+      <div class="form-group">
+      <%= f.label :score %>:<br>
+      <%= f.number_field :score, :class => 'inpt-data' %><br>
+      </div>
+      <div class="form-group">
+      <%= f.label :notes %>:<br>
+      <%= f.text_area :body, size: "20x6", :class => 'inpt-data' %><br>
+      </div>
+      <%= f.hidden_field :latitude, :id => "centre_latitude" %>
+      <%= f.hidden_field :longitude, :id => "centre_longitude" %>
+      <%= f.submit "Save", :class => 'btn btn-primary' %>
+      <%= link_to "Cancel", admin_path(1), class: 'btn btn-danger'%>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <div class=""style='width: 500px;'>
+      <div id="map" style='width: 500px; height: 350px;'></div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
 
 </div>
+
+<script type="text/javascript">
+  var handler = Gmaps.build('Google');
+  var markers_options = { draggable: true };
+
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    var markers_json =           [
+      {
+        "lat": <%= @restaurant.latitude %>,
+        "lng": <%= @restaurant.longitude %>,
+        "picture": {
+          "url": "http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png",
+          "width":  22,
+          "height": 40
+        }
+      }
+    ];
+    Gmaps.markers = handler.addMarkers(markers_json, markers_options);
+
+    handler.bounds.extendWith(Gmaps.markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(12);
+
+    // Callback function
+    _.each(Gmaps.markers, listenToDragDrop)
+
+    // On click, clear markers, place a new one, update coordinates in the form
+    google.maps.event.addListener(handler.getMap(), 'click', function(event) {
+      clearOverlays();
+      placeMarker(event.latLng);
+      updateFormLocation(event.latLng);
+    });
+  });
+
+  function listenToDragDrop(marker){
+    google.maps.event.addListener(marker.getServiceObject(), 'dragend', function() {
+      updateFormLocation(marker.getServiceObject().getPosition());
+    });
+  }
+
+  // Other functions
+  // Update form attributes with given coordinates
+  function updateFormLocation(latLng) {
+    $('#centre_latitude').val(latLng.lat());
+    $('#centre_longitude').val(latLng.lng());
+    $('#centre_gmaps_zoom').val(handler.getMap().getZoom());
+  }
+  // Add a marker with an open infowindow
+  function placeMarker(latLng) {
+    var marker = handler.addMarker({
+      lat: latLng.lat(),
+      lng: latLng.lng(),
+      infowindow: '<div class="inpt-data"><strong>Awesome!</strong><p>I am set to these GPS coordinates.</p>'
+    }, markers_options)
+
+    Gmaps.markers.push(marker)
+
+    // Set and open infowindow
+    google.maps.event.trigger(marker.getServiceObject(), 'click');
+
+    listenToDragDrop(marker);
+  }
+  // // Removes the overlays from the map, including the ones loaded with the map itself
+  function clearOverlays() {
+    handler.removeMarkers(Gmaps.markers);
+    Gmaps.markers = [];
+  }
+</script>

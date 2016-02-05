@@ -16,6 +16,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def edit
+    @restaurant = Restaurant.find_by_name(params[:id])
+  end
+
   def create
     Restaurant.create(restaurant_params)
 
