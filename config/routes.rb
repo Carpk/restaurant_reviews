@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :restaurants, except: [:index, :show] do
       resources :reviews
     end
-    resources :categories, only: [:new, :create]
+    resources :categories, only: [:index, :create, :destroy]
     resources :lists, only: [:new, :create]
     resources :blogs, only: [:new, :create]
   end

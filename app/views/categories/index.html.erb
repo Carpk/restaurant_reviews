@@ -1,0 +1,7 @@
+<div class="feature-box">
+  <% @categories.each do |category| %>
+    <%= category.set %>
+    <%= link_to "Delete", admin_category_path(1, category.id) %>
+  <% end %>
+  <%= link_to "create new", admin_category_path(1, category.id) %>
+</div>

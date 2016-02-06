@@ -4,6 +4,10 @@ class CategoriesController < ApplicationController
     @restaurants = Category.find_by_set(params[:id]).restaurants
   end
 
+  def index
+    @categories = Category.all
+  end
+
   def create
     Category.create(set: params[:category])
 
