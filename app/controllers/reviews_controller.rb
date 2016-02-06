@@ -8,6 +8,17 @@ class ReviewsController < ApplicationController
     @review = Review.new(restaurant_id: params[:restaurant_id])
   end
 
+  def edit
+    @review = Review.find_by_title(params[:id])
+  end
+
+  def update
+    review = Review.find_by_title(params[:id])
+    review.update(review_params)
+
+    redirect_to admin_path(1)
+  end
+
   def create
     Review.create(review_params)
 

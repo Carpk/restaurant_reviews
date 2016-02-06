@@ -9,7 +9,7 @@
       <p>Price: $<%= review.price %></p>
       <p>Details:<br>
       <%= review.body %></p>
-      <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.id, review.title), class: "btn btn-primary" %>
       <%= link_to "Destroy", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-danger" %>
     </div>
     <% end %>
