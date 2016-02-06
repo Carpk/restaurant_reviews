@@ -26,6 +26,13 @@ class RestaurantsController < ApplicationController
     redirect_to admin_path(1)
   end
 
+  def update
+    restaurant = Restaurant.find_by_name(params[:id])
+    restaurant.update(restaurant_params)
+
+    redirect_to admin_path(1)
+  end
+
   def destroy
     Restaurant.find(params[:id]).destroy
 
