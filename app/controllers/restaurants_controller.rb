@@ -18,6 +18,7 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find_by_name(params[:id])
+    @categories = Category.all
   end
 
   def create

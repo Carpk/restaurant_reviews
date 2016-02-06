@@ -12,9 +12,15 @@
       <%= f.label :score %>:<br>
       <%= f.number_field :score, :class => 'inpt-data' %><br>
       </div>
+      <div>
+        <% @categories.each do |cg| %>
+          <%= check_box_tag cg.set, cg.set, @restaurant.categories.include?(cg) %>
+          <%= f.label cg.set %>
+        <% end %>
+      </div>
       <div class="form-group">
       <%= f.label :notes %>:<br>
-      <%= f.text_area :body, size: "20x6", :class => 'inpt-data' %><br>
+      <%= f.text_area :body, :class => 'inpt-data txt-field' %><br>
       </div>
       <%= f.hidden_field :latitude, :id => "centre_latitude" %>
       <%= f.hidden_field :longitude, :id => "centre_longitude" %>
