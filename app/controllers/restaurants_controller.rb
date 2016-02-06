@@ -14,11 +14,13 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @category   = Category.new
+    @categories = Category.split_all
   end
 
   def edit
     @restaurant = Restaurant.find_by_name(params[:id])
-    @categories = Category.all
+    @categories = Category.split_all
   end
 
   def create
