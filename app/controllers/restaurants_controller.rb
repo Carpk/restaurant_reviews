@@ -24,7 +24,8 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    Restaurant.create(restaurant_params)
+    rstrnt = Restaurant.create(restaurant_params)
+    rstrnt.add_categories(params[:category_ids])
 
     redirect_to admin_path(1)
   end
@@ -32,6 +33,7 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find_by_name(params[:id])
     restaurant.update(restaurant_params)
+    restaurant.edit_categories(params[:category_ids])
 
     redirect_to admin_path(1)
   end

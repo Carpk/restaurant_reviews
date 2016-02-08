@@ -6,18 +6,18 @@
     <%= form_for @restaurant, url: admin_restaurants_path, html: {role: "form"} do |f| %>
       <div class="form-group">
       <%= f.label :name %>:<br>
-      <%= f.text_field :name, :class => 'inpt-data' %><br>
+      <%= f.text_field :name, :class => 'inpt-data', :required => true %><br>
       </div>
       <div class="form-group">
       <%= f.label :score %>:<br>
-      <%= f.number_field :score, :class => 'inpt-data' %><br>
+      <%= f.number_field :score, :class => 'inpt-data', :required => true %><br>
       </div>
       <div class="form-group">
         <ul class="row">
-          <% @categories.each do |cg| %>
+          <% @categories.each do |ctgry| %>
             <li class="col-md-6">
-              <%= check_box_tag cg.set, cg.set, @restaurant.categories.include?(cg) %>
-              <%= f.label cg.set %>
+              <%= check_box_tag 'category_ids[]', ctgry.id, @restaurant.categories.include?(ctgry) %>
+              <%= f.label ctgry.set %>
             </li>
           <% end %>
         </ul>
