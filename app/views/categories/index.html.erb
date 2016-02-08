@@ -15,7 +15,7 @@
             <tr>
               <td><%= category.set %></td>
               <td><%= category.restaurants.count %></td>
-              <td><%= link_to "Delete", admin_category_path(1, category.id) %></td>
+              <td><%= link_to "Delete", admin_category_path(1, category.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %></td>
             </tr>
           <% end %>
         </tbody>
