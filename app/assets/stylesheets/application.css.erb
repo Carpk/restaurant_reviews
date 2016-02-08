@@ -7,34 +7,32 @@
 */
 
 @font-face {
-    font-family: 'defused';
-    src: url(<%= asset_path('defused.eot') %>);
-    src: url(<%= asset_path('defused.ttf') %>) format('truetype');
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'defused';
+  src: url(<%= asset_path('defused.eot') %>);
+  src: url(<%= asset_path('defused.ttf') %>) format('truetype');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'GravitasOne';
-    src: url(<%= asset_path('GravitasOne.eot') %>);
-    src: url(<%= asset_path('GravitasOne.ttf') %>) format('truetype');
-    font-weight: 300;
-    font-style: normal;
+  font-family: 'GravitasOne';
+  src: url(<%= asset_path('GravitasOne.eot') %>);
+  src: url(<%= asset_path('GravitasOne.ttf') %>) format('truetype');
+  font-weight: 300;
+  font-style: normal;
 }
 
 .inpt-data  {
   font-family: 'GravitasOne';
 }
 
- body {
+body {
   font-family: 'defused';
   margin: 0 0 0 0;
- }
-
-.home {
-  padding: 20px;
-  background-image: url('/assets/Franklin_Street.jpg');
+  background-image: url(<%= asset_path('Franklin_Street.jpg') %>);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 93vh;
+  min-height: 100vh;
 }
+
+
