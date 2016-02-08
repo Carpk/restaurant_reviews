@@ -1,19 +1,31 @@
-<div class="row">
-
-  <div class="feature-box col-md-12">
+<div class="feature-box">
+  <div class="row">
     <h1>Feature</h1>
-
-    <h1>Latest</h1>
-
-    <%= link_to @latest.restaurant.name, restaurant_path(@latest.restaurant.name) %><br>
-    <%= link_to @latest.title, restaurant_review_path(@latest.restaurant.name, @latest.title) %><br>
-  </div>
-
-
-  <div class="feature-box col-md-12">
-    <h1>Categories</h1>
-    <% @categories.each do |category| %>
-      <%= link_to category.set, category_path(category.set) %>
+    <% @featured_list.each do |featured| %>
+      <div class="col-md-3">
+        <%= link_to featured.name, restaurant_path(featured.name) %><br>
+        <p><%= featured.body %></p>
+      </div>
     <% end %>
+  </div>
+  <div class="row">
+    <h1>Latest</h1>
+    <% @latest_reviews.each do |review| %>
+      <div class="col-md-3">
+        <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
+        <%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %><br>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="feature-box">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Categories</h1>
+      <% @categories.each do |category| %>
+        <%= link_to category.set, category_path(category.set) %>
+      <% end %>
+    </div>
   </div>
 </div>
