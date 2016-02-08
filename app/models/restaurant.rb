@@ -10,4 +10,12 @@ class Restaurant < ActiveRecord::Base
     self.categories.clear
     add_categories(category_ids)
   end
+
+  def self.score_avg
+    total = 0
+    rstrnts = Restaurant.all
+
+    rstrnts.each {|rstrnt| total += rstrnt.score}
+    (total.to_f/rstrnts.count).round(1)
+  end
 end

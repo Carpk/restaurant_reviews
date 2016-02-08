@@ -11,6 +11,16 @@
           <th>Actions</th>
         </tr>
       </thead>
+      <tfoot>
+        <tr>
+          <td><%= @restaurants.count %></td>
+          <td><%= link_to "Add Restaurant", new_admin_restaurant_path(1) %></td>
+          <td><%= link_to "Edit Categories", admin_categories_path(1) %></td>
+          <td><%= Restaurant.score_avg %></td>
+          <td><%= Review.count %></td>
+          <td></td>
+        </tr>
+      </tfoot>
       <tbody>
       <% @restaurants.each do |place| %>
         <tr>
@@ -35,7 +45,5 @@
         <%end%>
       </tbody>
     </table>
-    <%= link_to "Add Restaurant", new_admin_restaurant_path(1) %>
-    <%= link_to "Edit Categories", admin_categories_path(1) %>
   </div>
 </div>
