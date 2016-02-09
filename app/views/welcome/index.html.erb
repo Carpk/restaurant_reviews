@@ -12,7 +12,7 @@
     <h1>Latest</h1>
     <% @latest_reviews.each do |review| %>
       <div class="col-md-3">
-        <%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %><br>
+        <h4><%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %></h4>
         @ <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
         <%= review.body_sample %>
       </div>
@@ -22,11 +22,11 @@
 
 <div class="feature-box">
   <div class="row">
-    <div class="col-md-12">
-      <h1>Categories</h1>
-      <% @categories.each do |category| %>
-        <%= link_to category.set, category_path(category.set) %>
-      <% end %>
-    </div>
+    <h1>Categories</h1>
+    <% @categories.each do |category| %>
+      <div class="col-md-3">
+        <center><%= link_to category.set, category_path(category.set) %></center>
+      </div>
+    <% end %>
   </div>
 </div>

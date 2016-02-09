@@ -1,12 +1,18 @@
-
-
-
 <div class="feature-box">
-  <h2><%= @review.restaurant.name %></h2><br>
-  <h4><%= @review.title %></h4>
-  <%= @review.entree %>
-  Price: $<%= @review.price %>
-  Score: <%= @review.score%>
-  <%= @review.body %>
-
+      <h2><%= @review.restaurant.name %></h2><br>
+  <div class="row">
+    <div class="col-md-7">
+      <h4><%= @review.title %></h4>
+      <p><%= @review.entree %></p>
+      <p>Price: $<%= @review.price %></p>
+      <p>Score: <%= @review.score%></p>
+      <p><%= @review.body %></p>
+    </div>
+    <div class="col-md-5">
+      <h4>Other reviews:</h4>
+      <% @review.restaurant.reviews.each do |other_review| %>
+        <%= link_to other_review.title, restaurant_review_path(other_review.restaurant.name, other_review.title) %>
+      <% end %>
+    </div>
+  </div>
 </div>
