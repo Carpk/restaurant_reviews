@@ -1,10 +1,10 @@
 <div class="feature-box">
   <div class="row">
-    <h1>Feature</h1>
+    <h1>Featured</h1>
     <% @featured_list.each do |featured| %>
       <div class="col-md-3">
-        <%= link_to featured.name, restaurant_path(featured.name) %><br>
-        <p><%= featured.body %></p>
+        <h3><%= link_to featured.name, restaurant_path(featured.name) %></h3>
+        <%= featured.body %>
       </div>
     <% end %>
   </div>
@@ -12,8 +12,9 @@
     <h1>Latest</h1>
     <% @latest_reviews.each do |review| %>
       <div class="col-md-3">
-        <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
         <%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %><br>
+        @ <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
+        <%= review.body_sample %>
       </div>
     <% end %>
   </div>
