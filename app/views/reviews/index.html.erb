@@ -3,14 +3,18 @@
   <div class="row">
     <% @reviews.each do |review| %>
     <div class="col-md-4">
+
+      <!-- <%= image_tag review.pic_url, height: '128', width: '128' %> -->
+
       <p><%= review.title %></p>
       <p><%= review.entree %></p>
       <p>Score:<span class="badge"><%= review.score %></span></p>
       <p>Price: $<%= review.price %></p>
       <p>Details:<br>
       <%= review.body %></p>
-      <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.id, review.title), class: "btn btn-primary" %>
-      <%= link_to "Destroy", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-danger" %>
+      <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.id, review.title), class: "btn btn-warning" %>
+      <%= link_to "Delete", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-danger" %>
+       <%= link_to "Change Pic", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-primary" %>
     </div>
     <% end %>
   </div>

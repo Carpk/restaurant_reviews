@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new(restaurant_id: params[:restaurant_id])
+    @review.picture.success_action_redirect = new_admin_restaurant_review_url(1, params[:restaurant_id])
   end
 
   def edit
@@ -22,6 +23,7 @@ class ReviewsController < ApplicationController
   def create
     Review.create(review_params)
 
+    # redirect_to new_admin_restaurant_review_picture_path(1, review.restaurant.name, review.title)
     redirect_to admin_path(1)
   end
 

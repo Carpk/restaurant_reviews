@@ -13,8 +13,8 @@ class Restaurant < ActiveRecord::Base
   end
 
   def self.score_avg
-    total = 0
     rstrnts = Restaurant.all
+    total = 0
 
     rstrnts.each {|rstrnt| total += rstrnt.score}
     (total.to_f/rstrnts.count).round(1)
