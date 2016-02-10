@@ -32,8 +32,12 @@ gem 'gmaps4rails'
 
 gem 'rails_12factor'
 
-gem 'carrierwave_direct'
-gem 'fog-aws'
+# Carrierwave for uploading to S3
+# gem 'carrierwave_direct'
+# gem 'fog-aws'
+
+gem 'aws-sdk', '~> 2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

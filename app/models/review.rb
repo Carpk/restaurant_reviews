@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :restaurant
-  mount_uploader :picture, PictureUploader
+  has_one :picture
 
   def body_sample
     self.body[0..37] + "..."

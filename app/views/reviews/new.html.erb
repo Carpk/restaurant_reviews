@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-4">
-        <%= form_for @review, url: admin_restaurant_reviews_path, html: {role: "form"} do |f| %>
+        <%= form_for @review, url: admin_restaurant_reviews_path, html: {role: "form", class: "directUpload", data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host }} do |f| %>
           <div class="form-group">
           <%= f.label :title %>:<br>
           <%= f.text_field :title, :class => 'inpt-data' %><br>
@@ -28,16 +28,12 @@
             <%= f.file_field :picture %>
           </div>
           <%= f.hidden_field :restaurant_id %>
-          <%= f.hidden_field :key %>
           <%= f.submit "Create", :class => 'btn btn-default' %>
           <%= link_to "Cancel", admin_path(1), class: 'btn btn-danger'%>
         <% end %>
     </div>
     <div class="col-md-7">
-      <%= direct_upload_form_for @review.picture do |f| %>
-        <%= f.file_field :picture %>
-        <%= f.submit "Upload picture", :class => 'btn btn-default'  %>
-      <% end %>
+
     </div>
   </div>
 </div>

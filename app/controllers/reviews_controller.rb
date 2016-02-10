@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     @reviews = Restaurant.find_by_name(params[:restaurant_id]).reviews
@@ -6,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new(restaurant_id: params[:restaurant_id])
-    @review.picture.success_action_redirect = new_admin_restaurant_review_url(1, params[:restaurant_id])
+
   end
 
   def edit
@@ -23,7 +24,6 @@ class ReviewsController < ApplicationController
   def create
     Review.create(review_params)
 
-    # redirect_to new_admin_restaurant_review_picture_path(1, review.restaurant.name, review.title)
     redirect_to admin_path(1)
   end
 
@@ -36,5 +36,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:restaurant_id, :title, :entree, :price, :score, :body)
+  end
+
+  def set_s3_direct_post
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end
