@@ -22,7 +22,7 @@ class Restaurant < ActiveRecord::Base
 
   def picture
     unless self.reviews.empty?
-      self.reviews.first.picture_url
+      self.reviews.first.picture
     else
       "/assets/default.jpg"
     end
