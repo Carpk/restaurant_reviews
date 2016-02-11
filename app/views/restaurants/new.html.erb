@@ -17,7 +17,7 @@
           <% @categories.each do |ctgry| %>
             <li class="col-md-6">
               <%= check_box_tag 'category_ids[]', ctgry.id, @restaurant.categories.include?(ctgry) %>
-              <%= f.label ctgry.set %>
+              <%= f.label ctgry.name %>
             </li>
           <% end %>
         </ul>

@@ -1,7 +1,7 @@
 class CreateAtmospheres < ActiveRecord::Migration
   def change
     create_table :atmospheres do |t|
-      t.string :set
+      t.string :name
       t.string :description
 
       t.timestamps

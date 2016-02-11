@@ -36,7 +36,19 @@ $(function() {
       formData:         form.data('form-data'),
       paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
-      replaceFileInput: false
+      replaceFileInput: false,
+      done: function(e, data) {
+        submitButton.prop('disabled', false);
+        progressBar.text("Uploading done");
+
+        // extract key and generate URL from response
+        var key   = $(data.jqXHR.responseXML).find("Key").text();
+        var url   = 'https://' + form.data('host') + '/' + key;
+        console.log(url);
+        // create hidden field
+        var input = $("<input />", { type:'hidden', name: "review[picture_url]", value: url })
+        form.append(input);
+      }
     });
   });
 });

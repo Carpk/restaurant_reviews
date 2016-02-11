@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "atmospheres", force: :cascade do |t|
-    t.string   "set"
+    t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "set"
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,13 +68,6 @@ ActiveRecord::Schema.define(version: 20160124023845) do
     t.text    "body"
   end
 
-  create_table "pictures", force: :cascade do |t|
-    t.integer  "review_id"
-    t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "restaurants", force: :cascade do |t|
     t.integer  "area_id"
     t.string   "name"
@@ -90,6 +83,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
     t.integer  "restaurant_id"
     t.string   "title"
     t.string   "entree"
+    t.string   "picture_url"
     t.integer  "price"
     t.integer  "score"
     t.text     "body"

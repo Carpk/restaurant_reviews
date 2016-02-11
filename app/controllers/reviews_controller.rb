@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :set_s3_direct_post, only: [:new, :edit]
 
   def index
     @reviews = Restaurant.find_by_name(params[:restaurant_id]).reviews
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    Review.create(review_params)
+    new_review = Review.create(review_params)
 
     redirect_to admin_path(1)
   end
@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:restaurant_id, :title, :entree, :price, :score, :body)
+    params.require(:review).permit(:restaurant_id, :title, :entree, :price, :score, :picture_url, :body)
   end
 
   def set_s3_direct_post

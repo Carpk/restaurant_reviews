@@ -27,15 +27,15 @@ chkh = Restaurant.create(name: "Chicken Hut", score: 3, latitude: 41.94017605,
 flub = Restaurant.create(name: "Flub A Dub Chub's", score: 8, latitude: 41.93718427,
                          longitude: -87.64414206, area_id: lake.id)
 
-burg = Category.create(set: "Burger")
-pizz = Category.create(set: "Pizza")
-ital = Category.create(set: "Italian")
-cchi = Category.create(set: "Chinese")
-brbq = Category.create(set: "BBQ")
-chic = Category.create(set: "Chicken")
-sand = Category.create(set: "Sandwich")
-soup = Category.create(set: "Soup")
-lati = Category.create(set: "Latin")
+burg = Category.create(name: "Burger")
+pizz = Category.create(name: "Pizza")
+ital = Category.create(name: "Italian")
+cchi = Category.create(name: "Chinese")
+brbq = Category.create(name: "BBQ")
+chic = Category.create(name: "Chicken")
+sand = Category.create(name: "Sandwich")
+soup = Category.create(name: "Soup")
+lati = Category.create(name: "Latin")
 
 rico.categories << pizz << sand
 punk.categories << pizz << ital
@@ -49,10 +49,10 @@ flub.categories << burg
 Blog.create(title: "Finding great Pizza", description: "")
 Blog.create(title: "Hidden Chinese Secrets", description: "Two words: Chinese Bread")
 
-Atmospheres.create(set: "loud")
-Atmospheres.create(set: "romantic")
-Atmospheres.create(set: "casual")
-Atmospheres.create(set: "small")
+Atmospheres.create(name: "loud")
+Atmospheres.create(name: "romantic")
+Atmospheres.create(name: "casual")
+Atmospheres.create(name: "small")
 
 List.create(title: "Awesome burgers", body: "Our list of epic burgers!").restaurants << lock << punk
 List.create(title: "Savory BBQ Joints", body: "Tasty BBQ").restaurants << wing

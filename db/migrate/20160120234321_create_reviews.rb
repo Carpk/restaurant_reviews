@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.references :restaurant
       t.string     :title
       t.string     :entree
+      t.string     :picture_url
       t.integer    :price
       t.integer    :score
       t.text       :body
