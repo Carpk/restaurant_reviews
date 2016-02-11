@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.integer  "picture_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -66,6 +67,13 @@ ActiveRecord::Schema.define(version: 20160124023845) do
     t.integer "restaurant_id", null: false
     t.integer "list_id",       null: false
     t.text    "body"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "review_id"
+    t.string   "url",        default: "/assets/default.jpg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "restaurants", force: :cascade do |t|

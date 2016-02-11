@@ -58,21 +58,26 @@ List.create(title: "Awesome burgers", body: "Our list of epic burgers!").restaur
 List.create(title: "Savory BBQ Joints", body: "Tasty BBQ").restaurants << wing
 List.create(title: "Best Pizza", body: "Hell yeah! Pizza").restaurants << rico
 
-Review.create(restaurant: punk, title: "Bubba burgers",
+punkr = Review.create(restaurant: punk, title: "Bubba burgers",
               entree: "Double Cheeseburger", price: "12", score: "6",
               body: "Burger was a pretty much a Bubba burger that you
               would buy from the frozen food section of your local
               grocery store. I rated it a 6, as I still enjoyed the
               dining experience.")
 
-Review.create(restaurant: lock, title: "Damn good burger",
+lockr = Review.create(restaurant: lock, title: "Damn good burger",
               entree: "Habanero Burger", price: "8", score: "10",
               body: "Very good burger made with quality beef. The
               spice on the burger was a bit overwhelming at first,
               however I continued consumption and was very satisfied.")
 
-Review.create(restaurant: wing, title: "Triple Crown",
+wingr = Review.create(restaurant: wing, title: "Triple Crown",
               entree: "Dim Sum", price: "4", score: "6",
-              picture_url: "https://chicagolunchbox.s3-us-west-2.amazonaws.com/uploads/91fa2159-597e-4f76-83d7-fca0b7ae53c9/dimsum.jpg",
               body: "Dim Sum was very good. Cheap, you can keep ordering
               them and trying different varieties.")
+
+Picture.create(review_id: wingr.id,
+               url: "https://chicagolunchbox.s3-us-west-2.amazonaws.com/uploads/91fa2159-597e-4f76-83d7-fca0b7ae53c9/dimsum.jpg")
+
+Picture.create(review_id: punkr.id,
+               url: "https://chicagolunchbox.s3-us-west-2.amazonaws.com/uploads/976c942d-4efb-48c9-a545-acefa7982c91/punky_burger.jpg")
