@@ -5,4 +5,12 @@ class Category < ActiveRecord::Base
     all = Category.all
     all.each_slice((all.length/2.0).ceil).to_a
   end
+
+  def picture
+    unless self.restaurants.empty?
+      self.restaurants.first.picture
+    else
+      "/assets/default.jpg"
+    end
+  end
 end

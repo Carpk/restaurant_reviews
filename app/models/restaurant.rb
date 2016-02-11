@@ -3,6 +3,14 @@ class Restaurant < ActiveRecord::Base
   has_many :reviews
   belongs_to :area
 
+  def self.score_avg
+    rstrnts = Restaurant.all
+    total = 0
+
+    rstrnts.each {|rstrnt| total += rstrnt.score}
+    (total.to_f/rstrnts.count).round(1)
+  end
+
   def add_categories(category_ids)
     category_ids.each {|id| self.categories << Category.find(id)}
   end
@@ -12,11 +20,11 @@ class Restaurant < ActiveRecord::Base
     add_categories(category_ids)
   end
 
-  def self.score_avg
-    rstrnts = Restaurant.all
-    total = 0
-
-    rstrnts.each {|rstrnt| total += rstrnt.score}
-    (total.to_f/rstrnts.count).round(1)
+  def picture
+    unless self.reviews.empty?
+      self.reviews.first.picture_url
+    else
+      "/assets/default.jpg"
+    end
   end
 end

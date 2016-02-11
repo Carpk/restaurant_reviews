@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def show
-    @restaurants = Category.find_by_set(params[:id]).restaurants
+    @restaurants = Category.find_by_name(params[:id]).restaurants
   end
 
   def index

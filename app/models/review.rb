@@ -5,11 +5,11 @@ class Review < ActiveRecord::Base
     self.body[0..37] + "..."
   end
 
-  # def pic_url
-  #   if self.picture.nil?
-  #     "http://wholesomehealthng.com/wp-content/uploads/2015/12/271626-fast-food.jpg"
-  #   else
-  #     self.picture.address
-  #   end
-  # end
+  def picture
+    if self.picture_url.nil?
+      "/assets/default.jpg"
+    else
+      self.picture_url
+    end
+  end
 end

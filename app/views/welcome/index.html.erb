@@ -2,7 +2,7 @@
   <div class="row">
     <h1>Featured</h1>
     <% @featured_list.each do |featured| %>
-      <div class="col-md-3">
+      <div class="col-md-3 img-bkgrnd" style="background-image: url(<%=featured.picture%>)">
         <h3><%= link_to featured.name, restaurant_path(featured.name) %></h3>
         <%= featured.body %>
       </div>
@@ -24,8 +24,10 @@
   <div class="row">
     <h1>Categories</h1>
     <% @categories.each do |category| %>
-      <div class="col-md-3">
-        <center><%= link_to category.name, category_path(category.name) %></center>
+      <div class="col-md-3 img-bkgrnd" style="background-image: url(<%=category.picture%>)">
+        <center>
+          <h3><%= link_to category.name, category_path(category.name) %></h3>
+        </center>
       </div>
     <% end %>
   </div>
