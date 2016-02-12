@@ -31,6 +31,12 @@ class ReviewsController < ApplicationController
     @review = Review.find_by_title(params[:id])
   end
 
+  def destroy
+    Review.find(params[:id]).destroy
+
+    redirect_to admin_restaurant_reviews_path(1, params[:restaurant_id])
+  end
+
 
   private
 
