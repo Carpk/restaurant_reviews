@@ -14,7 +14,6 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
-    @category   = Category.new
     @categories = Category.all
   end
 

@@ -13,15 +13,18 @@
       <%= f.number_field :score, :class => 'inpt-data', :required => true %><br>
       </div>
       <div class="form-group">
-        <ul class="row">
-          <% @categories.each do |ctgry| %>
-            <li class="col-md-6">
-              <%= check_box_tag 'category_ids[]', ctgry.id, @restaurant.categories.include?(ctgry) %>
-              <%= f.label ctgry.name %>
-            </li>
+        <ul>
+          <% @categories.in_groups_of(2, false) do |group| %>
+            <div class="row">
+              <% group.each do |ctgry| %>
+                <li class="col-md-6">
+                  <%= check_box_tag 'category_ids[]', ctgry.id, @restaurant.categories.include?(ctgry) %>
+                  <%= f.label ctgry.name %>
+                </li>
+              <% end %>
+            </div>
           <% end %>
         </ul>
-        <%= link_to "edit categories", admin_categories_path, class: 'btn btn-default' %>
       </div>
       <div class="form-group">
       <%= f.label :notes %>:<br>
