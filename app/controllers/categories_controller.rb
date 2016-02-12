@@ -9,6 +9,10 @@ class CategoriesController < ApplicationController
     @new_category = Category.new
   end
 
+  def edit
+    @category = Category.find_by_name(params[:id])
+  end
+
   def create
     Category.create(category_params)
 

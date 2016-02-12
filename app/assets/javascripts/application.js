@@ -46,7 +46,7 @@ $(function() {
         var url   = 'https://' + form.data('host') + '/' + key;
         console.log(url);
         // create hidden field
-        var input = $("<input />", { type:'hidden', name: "review[picture_url]", value: url })
+        var input = $("<input />", { type:'hidden', name: "review[picture_attributes][url]", value: url })
         form.append(input);
       }
     });

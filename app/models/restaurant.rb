@@ -21,10 +21,10 @@ class Restaurant < ActiveRecord::Base
   end
 
   def picture
-    unless self.reviews.empty?
-      self.reviews.first.picture
-    else
+    if self.reviews.empty?
       "/assets/default.jpg"
+    else
+      self.reviews.sample.set_pic
     end
   end
 end

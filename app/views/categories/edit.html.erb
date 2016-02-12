@@ -1,0 +1,21 @@
+<div class="feature-box">
+  <div class="">
+    <%= form_for @category, url: admin_category_path, html: {role: "form"} do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>:<br>
+        <%= f.text_field :name, :class => 'inpt-data' %><br>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>:<br>
+        <%= f.text_area :description, :class => 'inpt-data txt-field' %><br>
+      </div>
+      <div class="form-group">
+        <% @category.all_pictures.each do |picture| %>
+          <%= image_tag picture.url, height: '100', width: '150' %>
+        <% end %>
+      </div>
+      <%= f.submit "Save", :class => 'btn btn-primary' %>
+      <%= link_to "Cancel", admin_path(1), class: 'btn btn-danger'%>
+    <%end%>
+  </div>
+</div>

@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new(restaurant_id: params[:restaurant_id])
-
+    @review.build_picture
   end
 
   def edit
@@ -35,7 +35,8 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:restaurant_id, :title, :entree, :price, :score, :picture_url, :body)
+    params.require(:review).permit(:restaurant_id, :title, :entree,
+                   :price, :score, :body, picture_attributes: [:url, :review_id])
   end
 
   def set_s3_direct_post

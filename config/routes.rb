@@ -40,7 +40,7 @@ Rails.application.routes.draw do
         resources :pictures, only: [:new, :create]
       end
     end
-    resources :categories, only: [:index, :create, :destroy]
+    resources :categories, except: [:show, :new]
     resources :lists, only: [:new, :create]
     resources :blogs, only: [:new, :create]
   end

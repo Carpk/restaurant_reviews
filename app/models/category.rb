@@ -13,4 +13,15 @@ class Category < ActiveRecord::Base
       "/assets/default.jpg"
     end
   end
+
+  def all_pictures
+    all = []
+    self.restaurants.each do |rsrnt|
+      rsrnt.reviews.each do |review|
+        all << review.picture
+      end
+    end
+    all
+  end
+
 end
