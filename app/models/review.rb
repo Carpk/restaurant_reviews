@@ -8,10 +8,6 @@ class Review < ActiveRecord::Base
   end
 
   def set_pic
-    if self.picture.nil?
-      "/assets/default.jpg"
-    else
-      self.picture.url
-    end
+    self.picture.url
   end
 end

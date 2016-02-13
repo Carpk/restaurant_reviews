@@ -22,9 +22,13 @@ class Restaurant < ActiveRecord::Base
 
   def picture
     if self.reviews.empty?
-      "/assets/default.jpg"
+      Picture.default_pic
     else
       self.reviews.sample.set_pic
     end
+  end
+
+  def all_pictures
+    self.reviews.map {|review| review.picture}
   end
 end

@@ -4,20 +4,14 @@ class Category < ActiveRecord::Base
 
   def set_picture
     if self.picture_id.nil?
-      "/assets/default.jpg"
+      Picture.default_pic
     else
       self.picture.url
     end
   end
 
   def all_pictures
-    all = []
-    self.restaurants.each do |rsrnt|
-      rsrnt.reviews.each do |review|
-        all << review.picture
-      end
-    end
-    all
+    self.restaurants.map { |rsrnt| rsrnt.all_pictures }.flatten
   end
 
 end
