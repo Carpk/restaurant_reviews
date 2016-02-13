@@ -81,3 +81,6 @@ Picture.create(review_id: wingr.id,
 
 Picture.create(review_id: punkr.id,
                url: "https://chicagolunchbox.s3-us-west-2.amazonaws.com/uploads/976c942d-4efb-48c9-a545-acefa7982c91/punky_burger.jpg")
+
+Picture.create(review_id: lockr.id,
+               url: "http://s3-media3.fl.yelpcdn.com/bphoto/WBYXO2VLeDNorHOH1tbnAA/o.jpg")

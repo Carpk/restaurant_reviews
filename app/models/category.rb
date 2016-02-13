@@ -1,11 +1,12 @@
 class Category < ActiveRecord::Base
   has_and_belongs_to_many :restaurants
+  belongs_to :picture
 
-  def picture
-    unless self.restaurants.empty?
-      self.restaurants.first.picture
-    else
+  def set_picture
+    if self.picture_id.nil?
       "/assets/default.jpg"
+    else
+      self.picture.url
     end
   end
 

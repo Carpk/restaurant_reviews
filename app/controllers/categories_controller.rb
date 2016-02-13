@@ -13,6 +13,13 @@ class CategoriesController < ApplicationController
     @category = Category.find_by_name(params[:id])
   end
 
+  def update
+    category = Category.find_by_name(params[:id])
+    category.update(category_params)
+
+    redirect_to admin_categories_path(1)
+  end
+
   def create
     Category.create(category_params)
 
@@ -28,6 +35,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :description)
+    params.require(:category).permit(:name, :description, :picture_id)
   end
 end

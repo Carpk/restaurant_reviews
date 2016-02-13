@@ -24,7 +24,7 @@
   <div class="row">
     <h1>Categories</h1>
     <% @categories.each do |category| %>
-      <div class="col-md-3 img-bkgrnd" style="background-image: url(<%=category.picture%>)">
+      <div class="col-md-3 img-bkgrnd" style="background-image: url(<%=category.set_picture%>)">
         <center>
           <h3><%= link_to category.name, category_path(category.name) %></h3>
         </center>
