@@ -2,9 +2,12 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @hash = Gmaps4rails.build_markers(@restaurants) do |store, marker|
-      marker.lat store.latitude
-      marker.lng store.longitude
+    @hash = Gmaps4rails.build_markers(@restaurants) do |rstrnt, marker|
+      marker.lat rstrnt.latitude
+      marker.lng rstrnt.longitude
+      marker.title rstrnt.name
+      marker.infowindow '<a href="restaurants/'+ rstrnt.name+'"">'+ rstrnt.name + '</a>'
+      marker.json({ :id => rstrnt.id })
     end
   end
 
