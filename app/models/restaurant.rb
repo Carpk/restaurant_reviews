@@ -4,11 +4,9 @@ class Restaurant < ActiveRecord::Base
   belongs_to :area
 
   def self.score_avg
-    rstrnts = Restaurant.all
-    total = 0
+    rstrnts = Restaurant.all.map {|r| r.score}
 
-    rstrnts.each {|rstrnt| total += rstrnt.score}
-    (total.to_f/rstrnts.count).round(1)
+    (rstrnts.reduce(:+).to_f/rstrnts.count).round(1)
   end
 
   def add_categories(category_ids)

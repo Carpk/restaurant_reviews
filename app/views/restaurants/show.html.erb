@@ -6,13 +6,6 @@
       <p><%= @restaurant.score %></p>
       <p><%= @restaurant.body %></p>
       <p><%= @restaurant.area.name %></p>
-      <% @restaurant.reviews.each do |review| %>
-        <p><%= review.title %></p>
-        <p><%= review.entree %></p>
-        <p><%= review.price %></p>
-        <p><%= review.score %></p>
-        <p><%= review.body %></p>
-      <% end %>
     </div>
     <div class="col-md-6">
       <div class=""style='width: 500px;'>
@@ -20,7 +13,20 @@
       </div>
     </div>
   </div>
-
+  <% @restaurant.reviews.in_groups_of(3, false) do |reviews| %>
+    <div class="row">
+      <% reviews.each do |review| %>
+        <div class="col-md-4">
+          <h3><%= review.title %></h3>
+          <p><%= image_tag review.set_pic, width: "100%" %></p>
+          <p><%= review.entree %></p>
+          <p><%= review.price %></p>
+          <p><%= review.score %></p>
+          <p><%= review.body %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <script type="text/javascript">
     handler = Gmaps.build('Google');
