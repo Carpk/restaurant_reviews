@@ -3,7 +3,7 @@
   <h2><%=@restaurant.name%></h2>
   <div class="row">
     <div class="col-md-6">
-      <p><%= @restaurant.score %></p>
+      Score: <p><%= @restaurant.score %></p>
       <p><%= @restaurant.body %></p>
       <p><%= @restaurant.area.name %></p>
     </div>
@@ -20,8 +20,8 @@
           <h3><%= review.title %></h3>
           <p><%= image_tag review.set_pic, width: "100%" %></p>
           <p><%= review.entree %></p>
-          <p><%= review.price %></p>
-          <p><%= review.score %></p>
+          <p>Cost: $<%= review.price %></p>
+          <p>Score: <%= review.score %></p>
           <p><%= review.body %></p>
         </div>
       <% end %>
