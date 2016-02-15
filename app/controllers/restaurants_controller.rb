@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
       marker.lat rstrnt.latitude
       marker.lng rstrnt.longitude
       marker.title rstrnt.name
-      marker.infowindow '<a href="restaurants/'+ rstrnt.name+'"">'+ rstrnt.name + '</a>'
+      marker.infowindow render_to_string(:partial => "/layouts/infowindow", :locals => { :object => rstrnt})
       marker.json({ :id => rstrnt.id })
     end
   end
