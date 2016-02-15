@@ -18,7 +18,7 @@
       <% reviews.each do |review| %>
         <div class="col-md-4">
           <h3><%= review.title %></h3>
-          <p><%= image_tag review.set_pic, width: "100%" %></p>
+          <p><%= image_tag review.picture.url, width: "100%" %></p>
           <p><%= review.entree %></p>
           <p>Cost: $<%= review.price %></p>
           <p>Score: <%= review.score %></p>

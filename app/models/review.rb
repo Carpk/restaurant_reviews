@@ -6,8 +6,4 @@ class Review < ActiveRecord::Base
   def body_sample
     self.body[0..37] + "..."
   end
-
-  def set_pic
-    self.picture.url
-  end
 end

@@ -22,7 +22,7 @@ class Restaurant < ActiveRecord::Base
     if self.reviews.empty?
       Picture.default_pic
     else
-      self.reviews.sample.set_pic
+      self.reviews.sample.picture
     end
   end
 

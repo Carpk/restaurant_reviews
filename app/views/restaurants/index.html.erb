@@ -13,7 +13,7 @@
       <% group.each do |restaurant| %>
         <div class="col-md-4">
 
-        <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture%>)">
+        <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture.url%>)">
           <center>
             <h3><%= link_to restaurant.name, restaurant_path(restaurant.name) %></h3>
           </center>
