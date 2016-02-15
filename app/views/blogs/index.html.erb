@@ -1,1 +1,13 @@
-all blogs will be displayed here
+<div class="feature-box">
+  <h3>Blogs</h3>
+  <% @blogs.in_groups_of(4, false) do |blog_group| %>
+    <div class="row">
+      <% blog_group.each do |blog| %>
+        <div class="col-md-3">
+          <h4><%= blog.title %></h4>
+          <p><%= blog.description %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

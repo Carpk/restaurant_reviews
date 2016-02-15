@@ -18,7 +18,7 @@
       <div class="col-md-3">
         <h4><%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %></h4>
         @ <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
-        <%= review.body_sample %>
+        <%= review.body_sample %>...
       </div>
     <% end %>
   </div>

@@ -4,6 +4,6 @@ class Review < ActiveRecord::Base
   accepts_nested_attributes_for :picture
 
   def body_sample
-    self.body[0..37] + "..."
+    self.body[0..37]
   end
 end

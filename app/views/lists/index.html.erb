@@ -1,1 +1,13 @@
-all lists page
+<div class="feature-box">
+  <h3>Lists</h3>
+  <% @lists.in_groups_of(4, false) do |list_group| %>
+    <div class="row">
+      <% list_group.each do |list| %>
+        <div class="col-md-3">
+          <h4><%= list.title %></h4>
+          <p><%= list.body %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

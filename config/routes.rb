@@ -41,8 +41,8 @@ Rails.application.routes.draw do
       end
     end
     resources :categories, except: [:show, :new]
-    resources :lists, only: [:new, :create]
-    resources :blogs, only: [:new, :create]
+    resources :lists, only: [:new, :create, :edit, :destroy]
+    resources :blogs, only: [:new, :create, :edit, :destroy]
   end
 
   # Example resource route with sub-resources:

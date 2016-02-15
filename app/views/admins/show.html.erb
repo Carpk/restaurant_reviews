@@ -46,3 +46,32 @@
     </table>
   </div>
 </div>
+
+<div class="feature-box">
+  <h3>Blogs</h3> <%= link_to "Create Topic", new_admin_blog_path(1) %>
+  <% @blogs.in_groups_of(4,false) do |blog_group| %>
+    <div class="row">
+      <% blog_group.each do |blog| %>
+        <div class="col-md-3">
+          <h4><%= blog.title %></h4>
+          <p><%= blog.description %></p>
+          <%= link_to "edit" %> <%= link_to "delete" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="feature-box">
+  <h3>Lists</h3> <%= link_to "Create List", new_admin_list_path(1) %>
+  <% @lists.in_groups_of(4,false) do |list_group| %>
+    <div class="row">
+      <% list_group.each do |list| %>
+        <div class="col-md-3">
+          <h4><%= list.title %></h4>
+          <p><%= list.body %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
