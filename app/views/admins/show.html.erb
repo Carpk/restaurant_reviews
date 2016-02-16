@@ -55,7 +55,8 @@
         <div class="col-md-3">
           <h4><%= blog.title %></h4>
           <p><%= blog.description %></p>
-          <%= link_to "edit" %> <%= link_to "delete" %>
+          <%= link_to "edit" %>
+          <%= link_to "delete", admin_blog_path(1, blog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
         </div>
       <% end %>
     </div>
