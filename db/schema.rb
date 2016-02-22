@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "blogs", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "restaurant_id"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"

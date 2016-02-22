@@ -5,6 +5,6 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = Lists.new
+    @list = List.new
   end
 end

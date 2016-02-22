@@ -46,8 +46,10 @@ chkh.categories << chic
 flub.categories << burg
 
 
-Blog.create(title: "Finding great Pizza", description: "")
-Blog.create(title: "Hidden Chinese Secrets", description: "Two words: Chinese Bread")
+Blog.create(title: "Finding great Pizza", category_id: pizz.id, description: "Topic is regarding buying pie by the slice. I find timing is of an essence. best time to get a fresh slice of pie is right after the rush, such as 1pm or 6pm.")
+Blog.create(title: "Hidden Chinese Secrets", restaurant_id: wing.id, description: "Two words: Chinese Bread")
+Blog.create(title: "Vietnamese Sandwiches", restaurant_id: wing.id, description: "While differant types of meats are available, traditionally their sandwiches are made with pork. So a sandwich of this type will not dissappoint and would be more indicative of a sandwich from thier region.")
+Blog.create(title: "Chicken Parms", category_id: ital.id, description: "I am a huge fan of chicken, I find any place that makes a breaded steak will also make a mean chicken parm.")
 
 Atmospheres.create(name: "loud")
 Atmospheres.create(name: "romantic")

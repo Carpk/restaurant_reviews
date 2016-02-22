@@ -1,13 +1,13 @@
 <div class="feature-box">
-  Create a new List:
-  <%= form_for @list, url: admin_lists_path(1), html: {role: "form"} do |f| %>
+  <h3>Create a Blog topic:</h3>
+  <%= form_for @blog, url: admin_blog_path(1, @blog), html: {role: "form"} do |f| %>
     <div class="form-group">
       <%= f.label :title %>:<br>
       <%= f.text_field :title, :class => 'inpt-data', :required => true  %>
     </div>
     <div class="form-group">
       <%= f.label :description%>:<br>
-      <%= f.text_area :body, size: "20x6", :class => 'inpt-data'  %>
+      <%= f.text_area :description, size: "20x6", :class => 'inpt-data'  %>
     </div>
     <%= f.submit "Create", :class => "btn btn-primary" %>
   <% end %>

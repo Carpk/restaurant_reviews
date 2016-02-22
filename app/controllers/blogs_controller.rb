@@ -4,12 +4,27 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
 
+  def show
+    @blog = Blog.find_by_title(params[:id])
+  end
+
   def new
     @blog = Blog.new
   end
 
   def create
     Blog.create(blog_params)
+
+    redirect_to admin_path(1)
+  end
+
+  def edit
+    @blog = Blog.find_by_title(params[:id])
+  end
+
+  def update
+    blog = Blog.find(params[:id])
+    blog.update(blog_params)
 
     redirect_to admin_path(1)
   end
