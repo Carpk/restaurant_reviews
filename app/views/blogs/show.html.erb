@@ -1,6 +1,24 @@
 <div class="feature-box">
   <div class="row">
-    <h3><%= @blog.title %></h3>
-    <p><%= @blog.description %></p>
+    <div class="col-md-6">
+      <h3><%= @blog.title %></h3>
+      <p><%= @blog.description %></p>
+    </div>
+    <div class="col-md-6">
+      <div class=""style='width: 500px;'>
+        <div id="map" style='width: 500px; height: 350px;'></div>
+      </div>
+    </div>
   </div>
-</div
+</div>
+
+
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(14);
+    });
+  </script>

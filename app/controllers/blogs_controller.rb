@@ -6,10 +6,22 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find_by_title(params[:id])
+    
+    @blog.category_id ? restaurant_list = @blog.category.restaurants : restaurant_list = @blog.restaurant
+
+    @hash = Gmaps4rails.build_markers(restaurant_list) do |rstrnt, marker|
+      marker.lat rstrnt.latitude
+      marker.lng rstrnt.longitude
+      marker.title rstrnt.name
+      marker.infowindow render_to_string(:partial => "/layouts/infowindow", :locals => { :object => rstrnt})
+      marker.json({ :id => rstrnt.id })
+    end
   end
 
   def new
     @blog = Blog.new
+    @restaurants = Restaurant.all
+    @categories = Category.all
   end
 
   def create
