@@ -50,9 +50,9 @@
 <div class="feature-box">
   <h3>Blogs</h3> <%= link_to "Create Topic", new_admin_blog_path(1) %>
   <% @blogs.in_groups_of(4,false) do |blog_group| %>
-    <div class="row">
+    <div class="row well-row">
       <% blog_group.each do |blog| %>
-        <div class="col-md-3">
+        <div class="col-md-3 well well-box">
           <h4><%= blog.title %></h4>
           <p><%= blog.description %></p>
           <%= link_to "edit", edit_admin_blog_path(1, blog.title) %>
