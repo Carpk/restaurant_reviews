@@ -50,13 +50,19 @@
 <div class="feature-box">
   <h3>Blogs</h3> <%= link_to "Create Topic", new_admin_blog_path(1) %>
   <% @blogs.in_groups_of(4,false) do |blog_group| %>
-    <div class="row well-row">
+    <div class="row std-box-height">
       <% blog_group.each do |blog| %>
-        <div class="col-md-3 well well-box">
+        <div class="col-md-3 panel panel-default">
+          <div class="panel-heading">
           <h4><%= blog.title %></h4>
+          </div>
+          <div class="panel-body">
           <p><%= blog.description %></p>
-          <%= link_to "edit", edit_admin_blog_path(1, blog.title) %>
-          <%= link_to "delete", admin_blog_path(1, blog), method: :delete, data: { confirm: "Are you certain you want to delete #{blog.title}?" }  %>
+          </div>
+          <div class="panel-footer">
+          <%= link_to "edit", edit_admin_blog_path(1, blog.title), class: "btn btn-warning" %>
+          <%= link_to "delete", admin_blog_path(1, blog), method: :delete, class: "btn btn-danger", data: { confirm: "Are you certain you want to delete #{blog.title}?" }  %>
+          </div>
         </div>
       <% end %>
     </div>
