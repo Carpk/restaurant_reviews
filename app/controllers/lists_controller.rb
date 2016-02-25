@@ -6,5 +6,6 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
+    @restaurants = Restaurant.all
   end
 end
