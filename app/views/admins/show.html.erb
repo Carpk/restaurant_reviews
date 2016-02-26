@@ -54,14 +54,14 @@
       <% blog_group.each do |blog| %>
         <div class="col-md-3 panel panel-default">
           <div class="panel-heading">
-          <h4><%= blog.title %></h4>
+            <h4><%= blog.title %></h4>
           </div>
           <div class="panel-body">
-          <p><%= blog.description %></p>
+            <p><%= blog.description %></p>
           </div>
           <div class="panel-footer">
-          <%= link_to "edit", edit_admin_blog_path(1, blog.title), class: "btn btn-warning" %>
-          <%= link_to "delete", admin_blog_path(1, blog), method: :delete, class: "btn btn-danger", data: { confirm: "Are you certain you want to delete #{blog.title}?" }  %>
+            <%= link_to "edit", edit_admin_blog_path(1, blog.title), class: "btn btn-warning" %>
+            <%= link_to "delete", admin_blog_path(1, blog), method: :delete, class: "btn btn-danger", data: { confirm: "Are you certain you want to delete #{blog.title}?" }  %>
           </div>
         </div>
       <% end %>
@@ -72,11 +72,19 @@
 <div class="feature-box">
   <h3>Lists</h3> <%= link_to "Create List", new_admin_list_path(1) %>
   <% @lists.in_groups_of(4,false) do |list_group| %>
-    <div class="row">
+    <div class="row std-box-height">
       <% list_group.each do |list| %>
-        <div class="col-md-3">
-          <h4><%= list.title %></h4>
-          <p><%= list.body %></p>
+        <div class="col-md-3 panel panel-default">
+          <div class="panel-heading">
+            <h4><%= list.title %></h4>
+          </div>
+          <div class="panel-body">
+            <p><%= list.body %></p>
+          </div>
+          <div class="panel-footer">
+            <%= link_to "edit" %>
+            <%= link_to "delete" %>
+          </div>
         </div>
       <% end %>
     </div>

@@ -10,5 +10,11 @@ class CreateJoinTable < ActiveRecord::Migration
       # t.index [:list_id, :restaurant_id]
       t.text :body
     end
+
+    create_join_table :reviews, :lists do |t|
+      # t.index [:review_id, :list_id]
+      # t.index [:list_id, :review_id]
+      t.text :body
+    end
   end
 end
