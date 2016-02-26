@@ -8,4 +8,23 @@ class ListsController < ApplicationController
     @list = List.new
     @restaurants = Restaurant.all
   end
+
+  def create
+    list = List.create(list_params)
+    list
+  end
+
+  def edit
+    @list = List.find_by_title(params[:id])
+  end
+
+  def destory
+    List.find(params[:id]).destroy    
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:title, :body)
+  end
 end
