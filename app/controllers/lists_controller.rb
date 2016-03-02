@@ -12,6 +12,8 @@ class ListsController < ApplicationController
   def create
     list = List.create(list_params)
     list
+
+    redirect_to admin_path(1)
   end
 
   def edit
