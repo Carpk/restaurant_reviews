@@ -6,12 +6,12 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.sort_by{|r| r.name}
   end
 
   def create
     list = List.create(list_params)
-    list
+    params[:restaurant_ids].each {|r| list.restaurants << Restaurant.find(r)}
 
     redirect_to admin_path(1)
   end
