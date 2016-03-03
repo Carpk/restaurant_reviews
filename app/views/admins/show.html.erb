@@ -80,6 +80,11 @@
           </div>
           <div class="panel-body">
             <p><%= list.body %></p>
+            <ol>
+              <% list.restaurants.each do |r| %>
+                <li><%= r.name %></li>
+              <%end%>
+            </ol>
           </div>
           <div class="panel-footer">
             <%= link_to "edit" %>

@@ -20,8 +20,10 @@ class ListsController < ApplicationController
     @list = List.find_by_title(params[:id])
   end
 
-  def destory
-    List.find(params[:id]).destroy    
+  def destroy
+    List.find(params[:id]).destroy
+
+    redirect_to admin_path(1)
   end
 
   private
