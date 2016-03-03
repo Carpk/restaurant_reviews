@@ -21,6 +21,25 @@
       <%= f.label :third %>:<br>
       <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
     </div>
+    <div class="extra-fields"></div>
+    <%= link_to "Add another field", root_path, class:"btn btn-success", id:"add-item" %><br>
     <%= f.submit "Create", :class => "btn btn-primary" %>
+<div class="hidden">
+  <div class="form-group" id="extra-form">
+    $(num) :<br>
+    <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
+  </div>
+</div>
   <% end %>
 </div>
+
+<script>
+  var num = 4
+
+  $("#add-item").click(function(e) {
+    e.preventDefault();
+    console.log("item added");
+    $(".extra-fields").append( $("#extra-form") );
+    num++;
+  });
+</script>
