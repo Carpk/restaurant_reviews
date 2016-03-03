@@ -6,6 +6,16 @@
         <div class="col-md-3">
           <h4><%= list.title %></h4>
           <p><%= list.body %></p>
+            <ol>
+              <% list.listed_items.each do |r| %>
+                <% if r.class == Restaurant %>
+                  <li><%= link_to r.name, restaurant_path(r.name) %></li>
+                <% else %>
+                  <li><%= link_to r.title, restaurant_review_path(r.restaurant.name, r.title) %> @ <%= link_to r.restaurant.name, restaurant_path(r.restaurant.name) %></li>
+                <% end %>
+              <% end %>
+            </ol>
+
         </div>
       <% end %>
     </div>
