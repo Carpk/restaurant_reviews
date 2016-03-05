@@ -56,10 +56,6 @@ Atmospheres.create(name: "romantic")
 Atmospheres.create(name: "casual")
 Atmospheres.create(name: "small")
 
-List.create(title: "Awesome burgers", body: "Our list of epic burgers!").restaurants << lock << punk
-List.create(title: "Savory BBQ Joints", body: "Tasty BBQ").restaurants << wing
-List.create(title: "Best Pizza", body: "Hell yeah! Pizza").restaurants << rico
-
 punkr = Review.create(restaurant: punk, title: "Bubba burgers",
               entree: "Double Cheeseburger", price: "12", score: "6",
               body: "Burger was a pretty much a Bubba burger that you
@@ -77,6 +73,11 @@ wingr = Review.create(restaurant: wing, title: "Triple Crown",
               entree: "Dim Sum", price: "4", score: "6",
               body: "Dim Sum was very good. Cheap, you can keep ordering
               them and trying different varieties.")
+
+List.create(title: "Awesome burgers", body: "Our list of epic burgers!").restaurants << lock << punk << flub
+List.create(title: "Favorite Fries", body: "Tasty BBQ").restaurants << lock << flub
+List.create(title: "Best Pizza", body: "Hell yeah! Pizza").restaurants << rico << punk
+List.create(title: "List of Reviews!", body: "These are the only reviews!").reviews << punkr << lockr << wingr
 
 Picture.create(review_id: wingr.id,
                url: "https://chicagolunchbox.s3-us-west-2.amazonaws.com/uploads/91fa2159-597e-4f76-83d7-fca0b7ae53c9/dimsum.jpg")
