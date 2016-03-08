@@ -1,6 +1,7 @@
 <div class="feature-box">
   Create a new List:
   <%= form_for @list, url: admin_lists_path(1), html: {role: "form"} do |f| %>
+    <% @num = 1 %>
     <div class="form-group">
       <%= f.label :title %>:<br>
       <%= f.text_field :title, :class => 'inpt-data', :required => true  %>
@@ -21,18 +22,15 @@
       <%= f.label :third %>:<br>
       <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
     </div>
-    <div class="extra-fields"></div>
+    <div class="extra-fields">
+    </div>
     <%= link_to "Add another field", root_path, class:"btn btn-success", id:"add-item" %><br>
     <%= f.submit "Create", :class => "btn btn-primary" %>
 
     <script>
-      var num = 4
-
       $("#add-item").click(function(e) {
         e.preventDefault();
-        console.log("item added");
         $(".extra-fields").append("<%= escape_javascript(render partial: 'layouts/listform', object: " + f + ") %>" );
-        num++;
       });
     </script>
 

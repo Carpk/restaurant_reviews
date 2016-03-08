@@ -1,4 +1,4 @@
-<class="form-group" id="extra-form">
-  Additional:<br>
-  <%= select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
+<div class="form-group" id="extra-form">
+  Additional: <%= @num %><br>
+  <%= select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%><br>
 </div>
