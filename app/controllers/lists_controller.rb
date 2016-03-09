@@ -9,6 +9,10 @@ class ListsController < ApplicationController
     @restaurants = Restaurant.all.sort_by{|r| r.name}
   end
 
+  def show
+    @list = List.find_by_title(params[:id])
+  end
+
   def create
     list = List.create(list_params)
     params[:restaurant_ids].each {|r| list.restaurants << Restaurant.find(r)}

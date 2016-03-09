@@ -28,9 +28,12 @@
     <%= f.submit "Create", :class => "btn btn-primary" %>
 
     <script>
+      var num = 3
       $("#add-item").click(function(e) {
         e.preventDefault();
-        $(".extra-fields").append("<%= escape_javascript(render partial: 'layouts/listform', object: " + f + ") %>" );
+        $(".extra-fields").append("<%= escape_javascript(render partial: 'layouts/additionalfield', locals: {num: " + num + "}) %>" );
+        $('.field-num').html(num);
+        num++
       });
     </script>
 

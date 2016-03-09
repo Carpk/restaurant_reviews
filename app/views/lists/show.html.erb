@@ -1,0 +1,8 @@
+<div class="feature-box">
+  <h4><%=@list.title%></h4>
+  <% unless @list.restaurants.empty? %>
+    <%= render partial: 'layouts/restaurant_list' %>
+  <% else %>
+    <%= render partial: 'layouts/review_list' %>
+  <% end %>
+</div>

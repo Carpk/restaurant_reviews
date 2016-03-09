@@ -3,19 +3,15 @@
   <% @lists.in_groups_of(4, false) do |list_group| %>
     <div class="row">
       <% list_group.each do |list| %>
+        <% @list = list %>
         <div class="col-md-3">
-          <h4><%= list.title %></h4>
+          <h4><%= link_to list.title, list_path(list.title) %></h4>
           <p><%= list.body %></p>
-            <ol>
-              <% list.listed_items.each do |r| %>
-                <% if r.class == Restaurant %>
-                  <li><%= link_to r.name, restaurant_path(r.name) %></li>
-                <% else %>
-                  <li><%= link_to r.title, restaurant_review_path(r.restaurant.name, r.title) %> @ <%= link_to r.restaurant.name, restaurant_path(r.restaurant.name) %></li>
-                <% end %>
-              <% end %>
-            </ol>
-
+          <% unless list.restaurants.empty? %>
+            <%= render partial: 'layouts/restaurant_list' %>
+          <% else %>
+            <%= render partial: 'layouts/review_list' %>
+          <% end %>
         </div>
       <% end %>
     </div>
