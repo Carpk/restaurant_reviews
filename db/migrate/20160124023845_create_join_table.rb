@@ -5,15 +5,15 @@ class CreateJoinTable < ActiveRecord::Migration
       # t.index [:category_id, :restaurant_id]
     end
 
-    create_join_table :restaurants, :lists do |t|
-      # t.index [:restaurant_id, :list_id]
-      # t.index [:list_id, :restaurant_id]
+    create_table :restaurant_listings do |t|
+      t.belongs_to :restaurant
+      t.belongs_to :list
       t.text :body
     end
 
-    create_join_table :reviews, :lists do |t|
-      # t.index [:review_id, :list_id]
-      # t.index [:list_id, :review_id]
+    create_table :review_listings do |t|
+      t.belongs_to :review
+      t.belongs_to :list
       t.text :body
     end
   end

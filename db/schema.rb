@@ -59,24 +59,10 @@ ActiveRecord::Schema.define(version: 20160124023845) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.integer  "restaurant_id"
-    t.integer  "review_id"
     t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "lists_restaurants", id: false, force: :cascade do |t|
-    t.integer "restaurant_id", null: false
-    t.integer "list_id",       null: false
-    t.text    "body"
-  end
-
-  create_table "lists_reviews", id: false, force: :cascade do |t|
-    t.integer "review_id", null: false
-    t.integer "list_id",   null: false
-    t.text    "body"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -84,6 +70,12 @@ ActiveRecord::Schema.define(version: 20160124023845) do
     t.string   "url",        default: "/assets/default.jpg"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "restaurant_listings", force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "list_id"
+    t.text    "body"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -96,6 +88,12 @@ ActiveRecord::Schema.define(version: 20160124023845) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "review_listings", force: :cascade do |t|
+    t.integer "review_id"
+    t.integer "list_id"
+    t.text    "body"
   end
 
   create_table "reviews", force: :cascade do |t|

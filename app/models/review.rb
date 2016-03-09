@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
-  has_and_belongs_to_many :lists
+  has_many :review_listing
+  has_many :lists, :through => :reviews_listing
   belongs_to :restaurant
   has_one :picture
   accepts_nested_attributes_for :picture
