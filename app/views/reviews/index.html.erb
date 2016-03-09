@@ -1,11 +1,13 @@
 <div class="feature-box">
   <h2>Reviews for: <%= @reviews.first.restaurant.name%></h2>
+    <p class="alert-success"><%= flash[:notice] %></p>                          
+    <p class="alert-danger"><%= flash[:alert] %></p>
   <% @reviews.in_groups_of(3, false) do |group| %>
     <div class="row">
       <% group.each do |review| %>
         <div class="col-md-4">
           <h3><%= review.title %></h3>
-          <%= image_tag review.set_pic, height: '200', width: '300' %>
+          <%= image_tag review.picture height: '200', width: '300' %>
           <h4><%= review.entree %></h4>
           <p>Score:<span class="badge"><%= review.score %></span></p>
           <p>Price: $<%= review.price %></p>
@@ -13,7 +15,7 @@
           <%= review.body %></p>
           <%= link_to "Edit", edit_admin_restaurant_review_path(1, review.restaurant.name, review.title), class: "btn btn-warning" %>
           <%= link_to "Delete", admin_restaurant_review_path(1, review.restaurant.name, review.id), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
-           <%= link_to "Change Pic", admin_restaurant_review_path(1, review.restaurant.id, review.id), class: "btn btn-primary" %>
+           <%= link_to "Change Pic", admin_restaurant_review_path(1, review.restaurant.id, review.title), class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

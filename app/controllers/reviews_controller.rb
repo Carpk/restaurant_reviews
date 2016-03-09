@@ -22,9 +22,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    new_review = Review.create(review_params)
-
-    redirect_to admin_path(1)
+    new_review = Review.new(review_params)
+    if new_review.save
+      redirect_to admin_path(1), :notice => "Review successfully created"
+    else
+      redirect_to admin_path(1), :alert => "Unable to save review"
+    end
   end
 
   def show
@@ -34,9 +37,8 @@ class ReviewsController < ApplicationController
   def destroy
     Review.find(params[:id]).destroy
 
-    redirect_to admin_restaurant_reviews_path(1, params[:restaurant_id])
+    redirect_to admin_restaurant_reviews_path(1, params[:restaurant_id]), :alert => "Review has been deleted"
   end
-
 
   private
 
