@@ -1,7 +1,10 @@
 <div class="feature-box">
-  <p class="alert-success"><%= flash[:notice] %></p>
-  <p class="alert-warning"><%= flash[:warning] %></p>
-  <p class="alert-danger"><%= flash[:alert] %></p>
+  <h3>Admin Console</h3>
+  <% if flash[:notice] %>
+    <center class="alert alert-success"><%= flash[:notice] %></center>
+  <% elsif flash[:alert] %>
+    <center class="alert alert-danger"><%= flash[:alert] %></center>
+  <% end %>
   <div class="table-responsive">
     <table class="table">
       <thead>

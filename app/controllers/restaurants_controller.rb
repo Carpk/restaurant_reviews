@@ -29,7 +29,7 @@ class RestaurantsController < ApplicationController
     rstrnt = Restaurant.create(restaurant_params)
     rstrnt.add_categories(params[:category_ids])
 
-    redirect_to admin_path(1)
+    redirect_to admin_path(1), :notice => "A new restaurant has been created"
   end
 
   def update
@@ -43,7 +43,7 @@ class RestaurantsController < ApplicationController
   def destroy
     Restaurant.find(params[:id]).destroy
 
-    redirect_to admin_path(1)
+    redirect_to admin_path(1), :alert => "Restaurant has been deleted"
   end
 
   private

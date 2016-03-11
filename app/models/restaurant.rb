@@ -11,6 +11,10 @@ class Restaurant < ActiveRecord::Base
     (rstrnts_scores.reduce(:+).to_f/rstrnts_scores.count).round(1)
   end
 
+  def list_body(id)
+    self.restaurant_listing.find {|l| l.list_id == id }.body
+  end
+
   def add_categories(category_ids)
     category_ids.each {|id| self.categories << Category.find(id)}
   end

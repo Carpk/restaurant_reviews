@@ -1,5 +1,6 @@
 <ol>
   <% @list.restaurants.each do |r| %>
     <li><%= link_to r.name, restaurant_path(r.name) %></li>
+        <%= r.restaurant_listing.find {|l| l.list_id == @list.id }.body %>
   <% end %>
 </ol>

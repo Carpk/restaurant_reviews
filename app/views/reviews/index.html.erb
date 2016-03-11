@@ -1,13 +1,16 @@
 <div class="feature-box">
   <h2>Reviews for: <%= @reviews.first.restaurant.name%></h2>
-    <p class="alert-success"><%= flash[:notice] %></p>                          
-    <p class="alert-danger"><%= flash[:alert] %></p>
+  <% if flash[:notice] %>
+    <center class="alert alert-success"><%= flash[:notice] %></center>
+  <% elsif flash[:alert] %>
+    <center class="alert alert-danger"><%= flash[:alert] %></center>
+  <% end %>
   <% @reviews.in_groups_of(3, false) do |group| %>
     <div class="row">
       <% group.each do |review| %>
         <div class="col-md-4">
           <h3><%= review.title %></h3>
-          <%= image_tag review.picture height: '200', width: '300' %>
+          <%= image_tag review.picture.url, height: '200', width: '300' %>
           <h4><%= review.entree %></h4>
           <p>Score:<span class="badge"><%= review.score %></span></p>
           <p>Price: $<%= review.price %></p>
