@@ -2,6 +2,11 @@
   Create a new List:
   <%= form_for @list, url: admin_lists_path(1), html: {role: "form"} do |f| %>
     <% @num = 1 %>
+    <%= radio_button_tag(:list_type, "restaurants") %>
+    <%= label_tag(:restaurants) %>
+    <%= radio_button_tag(:list_type, "reviews") %>
+    <%= label_tag(:reviews) %>    
+    
     <div class="form-group">
       <%= f.label :title %>:<br>
       <%= f.text_field :title, :class => 'inpt-data', :required => true  %>
