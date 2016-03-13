@@ -1,12 +1,11 @@
 <div class="feature-box">
   Create a new List:
   <%= form_for @list, url: admin_lists_path(1), html: {role: "form"} do |f| %>
-    <% @num = 1 %>
-    <%= radio_button_tag(:list_type, "restaurants") %>
+    <% list_options = @restaurants %>
+    <%= radio_button_tag(:list_type, "restaurants", checked: true ) %>
     <%= label_tag(:restaurants) %>
-    <%= radio_button_tag(:list_type, "reviews") %>
+    <%= radio_button_tag(:list_type, "reviews" )%>
     <%= label_tag(:reviews) %>    
-    
     <div class="form-group">
       <%= f.label :title %>:<br>
       <%= f.text_field :title, :class => 'inpt-data', :required => true  %>
@@ -17,15 +16,15 @@
     </div>
     <div class="form-group">
       <%= f.label :first %>:<br>
-      <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
+      <%= f.select_tag "restaurant_ids[]", options_for_select(list_options.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
     </div>
     <div class="form-group">
       <%= f.label :second %>:<br>
-      <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
+      <%= f.select_tag "restaurant_ids[]", options_for_select(list_options.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
     </div>
     <div class="form-group">
       <%= f.label :third %>:<br>
-      <%= f.select_tag "restaurant_ids[]", options_for_select(@restaurants.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
+      <%= f.select_tag "restaurant_ids[]", options_for_select(list_options.collect{|r| [r.name, r.id]}), include_blank: true, class:"btn btn-default dropdown-toggle"%>
     </div>
     <div class="extra-fields">
     </div>
@@ -39,6 +38,14 @@
         $(".extra-fields").append("<%= escape_javascript(render partial: 'layouts/additionalfield', locals: {num: " + num + "}) %>" );
         $('.field-num').html(num);
         num++
+      });
+
+      $("#list_type_reviews").click(function(e) {
+        $(".new_list").append("<% list_options = @reviews %>");
+      });
+
+      $("#list_type_restaurants").click(function(e) {
+        $(".new_list").append("<% list_options = @restaurants %>");
       });
     </script>
 

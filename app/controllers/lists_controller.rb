@@ -7,6 +7,7 @@ class ListsController < ApplicationController
   def new
     @list = List.new
     @restaurants = Restaurant.all.sort_by{|r| r.name}
+    @reviews = Review.all.sort_by{|r| r.entree}
   end
 
   def show

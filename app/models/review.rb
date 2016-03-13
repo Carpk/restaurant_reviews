@@ -9,6 +9,10 @@ class Review < ActiveRecord::Base
     super || Picture.default_pic
   end
 
+  def name
+    self.entree + " @ " + self.restaurant.name
+  end
+
   def body_sample
     self.body[0..37]
   end
