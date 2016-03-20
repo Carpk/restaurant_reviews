@@ -76,7 +76,9 @@
 </div>
 
 <div class="feature-box">
-  <h3>Lists</h3> <%= link_to "Create List", new_admin_list_path(1) %>
+  <h3>Lists</h3>
+  <%= link_to "Create Restaurant List", new_admin_restaurant_list_path(1,'restaurant) %>
+  <%= link_to "Create List", new_admin_review_list_path(1,'review') %>
   <% @lists.in_groups_of(4,false) do |list_group| %>
     <div class="row std-box-height">
       <% list_group.each do |list| %>

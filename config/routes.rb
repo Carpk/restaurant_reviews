@@ -36,12 +36,16 @@ Rails.application.routes.draw do
 
   resources :admins, only: [:show] do
     resources :restaurants, except: [:index, :show] do
+      resources :lists, only: [:new]
       resources :reviews do
         resources :pictures, only: [:new, :create]
       end
     end
+    resources :reviews, only: [] do
+      resources :lists, only: [:new]
+    end
     resources :categories, except: [:show, :new]
-    resources :lists, except: [:index, :show]
+    resources :lists, except: [:index, :show, :new]
     resources :blogs, except: [:index, :show]
   end
 
