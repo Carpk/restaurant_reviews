@@ -1,5 +1,7 @@
 <ol>
   <% @list.reviews.each do |r| %>
-    <li><%= link_to r.title, restaurant_review_path(r.restaurant.name, r.title) %> @ <%= link_to r.restaurant.name, restaurant_path(r.restaurant.name) %></li>
+    <li><%= link_to r.title, restaurant_review_path(r.restaurant.name, r.title) %> @ <%= link_to r.restaurant.name, restaurant_path(r.restaurant.name) %><br>
+    <%= r.review_listing.find {|l| l.list_id == @list.id }.body %>
+    </li>
   <% end %>
 </ol>
