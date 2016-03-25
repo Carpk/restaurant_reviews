@@ -16,7 +16,10 @@ class ListsController < ApplicationController
 
   def create
     list = List.create(list_params)
-    params[:restaurant_ids].each {|r| list.restaurants << Restaurant.find(r)}
+    params[:restaurant_ids].each_with_index do |id, indx| 
+      list.restaurants << Restaurant.find(id)
+      RestaurantListing.last.update(body: params[:description][:restaurant_bodies][indx])
+    end
 
     redirect_to admin_path(1)
   end
