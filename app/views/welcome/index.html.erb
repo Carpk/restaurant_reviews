@@ -4,9 +4,11 @@
     <% @featured_list.each do |featured| %>
       <div class="col-md-3">
         <div class="img-bkgrnd" style="background-image: url(<%=featured.picture.url%>)">
+          <div class="tint">
           <center>
             <h3><%= link_to featured.name, restaurant_path(featured.name) %></h3>
           </center>
+          </div>
         </div>
         Score: <%= featured.score %> <span class="pull-right">Cost: <%= featured.expense %></span>
       </div>

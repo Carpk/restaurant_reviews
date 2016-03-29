@@ -7,9 +7,9 @@
 */
 
 @font-face {
-  font-family: 'defused';
-  src: url(<%= asset_path('defused.eot') %>);
-  src: url(<%= asset_path('defused.ttf') %>) format('truetype');
+  font-family: 'DroidSerif';
+  src: url(<%= asset_path('DroidSerif.eot') %>);
+  src: url(<%= asset_path('DroidSerif.ttf') %>) format('truetype');
   font-weight: 300;
   font-style: normal;
 }
@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: 'defused';
+  font-family: 'DroidSerif';
   margin: 0 0 0 0;
   text-shadow: 1px 1px 2px black;
   background-image: url(<%= asset_path('Franklin_Street.jpg') %>);
@@ -46,3 +46,13 @@ body {
   min-height: 95px
 }
 
+.tint {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.7);
+}
