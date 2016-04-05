@@ -8,12 +8,14 @@ class CreateJoinTable < ActiveRecord::Migration
     create_table :restaurant_listings do |t|
       t.belongs_to :restaurant
       t.belongs_to :list
+      t.integer :rank
       t.text :body
     end
 
     create_table :review_listings do |t|
       t.belongs_to :review
       t.belongs_to :list
+      t.integer :rank
       t.text :body
     end
   end
