@@ -1,34 +1,33 @@
-<div class="welcome-text bottom-spacer">
+<div class="view-section">
   <div class="row">
-    <h1>Tub's Food Reviews</h1>
-    <a href="">featured</a>
-    <a href="">latest</a>
-    <a href="">categories</a>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="jumbotron">
+        <h1>Fatty's Food Reviews</h1>
+        <a href="#featured">featured</a>
+        <a href="#latest_reviews">latest reviews</a>
+        <a href="#categories">categories</a>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
   </div>
   <div class="row">
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3>Featured</h3>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3>Latest</h3>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3>categories</h3>
       </div>
     </div>
   </div>
-  <div class="row"></div>
 </div>
-
-
-
-
-<div class="feature-box">
+<div class="view-section">
+  <a id="featured"></a>
   <div class="row">
     <h1>Featured</h1>
     <% @featured_list.each do |featured| %>
@@ -44,6 +43,9 @@
       </div>
     <% end %>
   </div>
+</div>
+<div class="view-section">
+  <a id="latest_reviews"></a>
   <div class="row">
     <h1>Latest</h1>
     <% @latest_reviews.each do |review| %>
@@ -55,8 +57,8 @@
     <% end %>
   </div>
 </div>
-
-<div class="feature-box">
+<div class="view-section feature-box">
+  <a id="categories"></a>
   <div class="row">
     <h1>Categories</h1>
     <% @categories.each do |category| %>
