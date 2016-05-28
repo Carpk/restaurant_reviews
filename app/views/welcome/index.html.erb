@@ -5,10 +5,9 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
       <div class="jumbotron welcome-msg">
-        <h1>Fatty's Food Reviews</h1>
-        <a href="#featured">featured</a>
-        <a href="#latest_reviews">latest reviews</a>
-        <a href="#categories">categories</a>
+        <h1>Tubb's Food Reviews</h1>
+        <a href="#about">about</a>
+        <a href="#"></a>
       </div>
       <div class="col-sm-2"></div>
     </div>
@@ -16,70 +15,43 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3><a href="#featured">Featured</a></h3>
+        <h3><%= link_to "Featured", restaurants_path %></h3>
         <p>best eateries in the Chicago area</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3><a href="#latest_reviews">Latest Reviews</a></h3>
-        <p>our most recent dining experiences</p>
+        <h3><%= link_to "Lists", lists_path %></h3>
+        <p>compiled lists of our favorite dishes</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="feature-box">
-        <h3><a href="#categories">Categories</a></h3>
-        <p>choose from a list of different cuisine</p>
+        <h3><%= link_to "Tips & Hacks", blogs_path %></h3>
+        <p>secrets to finding best places to eat</p>
       </div>
     </div>
   </div>
   </div>
 </div>
-<div class="view-section featured-background">
-  <a id="featured"></a>
-  <div class="row">
-    <h1>Featured</h1>
-    <% @featured_list.each do |featured| %>
-      <div class="col-md-3">
-        <div class="img-bkgrnd" style="background-image: url(<%=featured.picture.url%>)">
-          <div class="tint">
-          <center>
-            <h3><%= link_to featured.name, restaurant_path(featured.name) %></h3>
-          </center>
-          </div>
-        </div>
-        Score: <%= featured.score %> <span class="pull-right">Cost: <%= featured.expense %></span>
+<div class="view-section">
+  <a id="about"></a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 jumbotron">
+        This site is dedicated to all the delicious places I have visited while driving around the city of Chicago, and to share my dining experiences with you.
       </div>
-    <% end %>
+      <div class="col-sm-2"></div>
+    </div>
   </div>
 </div>
-<div class="view-section latest-background">
-  <a id="latest_reviews"></a>
+<div class="view-section">
+  <a id=""></a>
   <div class="row">
-    <h1>Latest</h1>
-    <% @latest_reviews.each do |review| %>
-      <div class="col-md-3">
-        <h4><%= link_to review.title, restaurant_review_path(review.restaurant.name, review.title) %></h4>
-        @ <%= link_to review.restaurant.name, restaurant_path(review.restaurant.name) %><br>
-        <%= review.body_sample %>...
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="view-section categories-background">
-  <a id="categories"></a>
-  <div class="row">
-    <h1>Categories</h1>
-    <% @categories.each do |category| %>
-      <div class="col-md-3">
-        <div class="img-bkgrnd" style="background-image: url(<%=category.picture.url%>)">
-          <center>
-            <h3><%= link_to category.name, category_path(category.name) %></h3>
-          </center>
-        </div>
-      </div>
-    <% end %>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
   </div>
 </div>
 
