@@ -16,3 +16,8 @@ Download the repo, and run the commands from the app's root directory:
 `rake db:migrate`
 
 `rake db:seed`
+
+### Screenshot
+
+![landing page](https://raw.githubusercontent.com/Carpk/restaurant_reviews/master/app/assets/images/landing_page.png)
+Cleaner and more streamlined landing page, rest of site will follow.
