@@ -33,18 +33,11 @@
 body {
   font-family: 'DroidSerif';
   margin: 0 0 0 0;
-  text-shadow: 1px 1px 2px black;
   min-height: 100vh;
 }
 
 .default-background {
   background-image: url(<%= asset_path('Franklin_Street.jpg') %>);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.welcome-background {
-  background-image: url(<%= asset_path('wonton_soup.jpg') %>);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -89,9 +82,12 @@ body {
     border-radius: 2px;
 }
 
-.welcome-msg {
-  margin-top: 20vh;
-}
+.img-peek {
+  background-image: url(<%= asset_path('wonton_soup.jpg') %>);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30vh;
+} 
 
 .about-msg {
   margin-top: 30vh;
@@ -100,4 +96,10 @@ body {
 .center-img {
   display: block;
   margin: 0 auto;
+}
+
+.circle-vector-icon {
+  border: 3px solid black;
+  border-radius: 90px;
+  padding: 12px;
 }

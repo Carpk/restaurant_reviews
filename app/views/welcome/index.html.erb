@@ -1,36 +1,44 @@
-
-<div class="view-section welcome-background">
+<div class="view-section">
+  <div class="row">
+    <div class="col-sm-12 img-peek"></div>
+  </div>
   <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-      <div class="jumbotron welcome-msg">
-        <h1>Tubb's Food Reviews</h1>
+      <div class="jumbotron">
+        <h1>Tubby's Gourmet Reviews</h1>
         <a href="#about">about</a>
-        <a href="#"></a>
+        <a href="#where">where</a>
       </div>
       <div class="col-sm-2"></div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
-      <div class="feature-box">
-        <h3><%= link_to "Featured", restaurants_path %></h3>
-        <p>best eateries in the Chicago area</p>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="">
+            <h3><%= link_to "Featured", restaurants_path %></h3>
+            <p>best eateries in the Chicago area</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="">
+            <h3><%= link_to "Lists", lists_path %></h3>
+            <p>compiled lists of our favorite dishes</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="">
+            <h3><%= link_to "Tips & Hacks", blogs_path %></h3>
+            <p>secrets to finding best places to eat</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="feature-box">
-        <h3><%= link_to "Lists", lists_path %></h3>
-        <p>compiled lists of our favorite dishes</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="feature-box">
-        <h3><%= link_to "Tips & Hacks", blogs_path %></h3>
-        <p>secrets to finding best places to eat</p>
-      </div>
-    </div>
+    <div class="col-sm-1"></div>
   </div>
   </div>
 </div>
@@ -48,9 +56,9 @@
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
         <div class="row">
-          <div class="col-sm-4"><%= image_tag("burger.png", height: "144")%></div>
-          <div class="col-sm-4"><%= image_tag("cutlery.png", height: "144", class: "center-img")%></div>
-          <div class="col-sm-4"><%= image_tag("beer.png", height: "144", class: "pull-right")%></div>
+          <div class="col-sm-4"><%= image_tag("burger.png", height: "144", class: "circle-vector-icon pull-left")%></div>
+          <div class="col-sm-4"><%= image_tag("cutlery.png", height: "144", class: "circle-vector-icon center-img")%></div>
+          <div class="col-sm-4"><%= image_tag("beer.png", height: "144", class: "circle-vector-icon pull-right")%></div>
         </div>
       </div>
       <div class="col-sm-2"></div>
