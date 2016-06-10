@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :blogs, only: [:index, :show]
   resources :lists, only: [:index, :show]
   resources :categories, only: [:show]
+  resources :reviews, only: [:index]
 
   resources :restaurants, only: [:index, :show] do
     resources :reviews, only: [:index, :show]

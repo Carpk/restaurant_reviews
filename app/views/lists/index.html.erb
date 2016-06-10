@@ -2,24 +2,23 @@
   <div class="container-fluid">
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#">Restaurants</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li class="active"><a href="#">Lists<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Food Tips</a></li>
+        <li><%= link_to "Restaurants", restaurants_path %></li>
+      <li><%= link_to "Reviews", reviews_path %></li>
+    <li class="active"><%= link_to "Lists", lists_path %></li>
+        <li><%= link_to "Food Tips", blogs_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Tacos</a></li>
+            <li><a href="#">Pizza</a></li>
+            <li><a href="#">Tacos</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
       </ul>
     </div>
+  </div>
 </nav>
 
 <div class="">

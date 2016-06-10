@@ -2,7 +2,12 @@ class ReviewsController < ApplicationController
   before_action :set_s3_direct_post, only: [:new, :edit]
 
   def index
-    @reviews = Restaurant.find_by_name(params[:restaurant_id]).reviews
+    if params[:restaurant_id]
+      @reviews = Restaurant.find_by_name(params[:restaurant_id]).reviews
+    else
+      @reviews = Review.first
+      render "featured"
+    end
   end
 
   def new
