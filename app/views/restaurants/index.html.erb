@@ -1,5 +1,45 @@
-<div class="">
-  <div class="row">
+<nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Restaurants", restaurants_path %></li>
+          <li><%= link_to "Reviews", reviews_path %></li>
+          <li class="active"><%= link_to "Lists", lists_path %></li>
+          <li><%= link_to "Food Tips", blogs_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Categories<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Tacos</a></li>
+              <li><a href="#">Pizza</a></li>
+              <li><a href="#">Tacos</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+            <div id="search-form"></div>
+            <!--<form class="navbar-form navbar-left filterform" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control filterinput" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>-->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div>
+  <div id="google-map" class="row">
     <div class="col-md-6">
       <div class=""style='width: 500px;'>
         <div id="map" style='width: 500px; height: 350px;'></div>
@@ -12,13 +52,11 @@
     <div class="row">
       <% group.each do |restaurant| %>
         <div class="col-md-4">
-
-        <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture.url%>)">
-          <center>
-            <h3><%= link_to restaurant.name, restaurant_path(restaurant.name) %></h3>
-          </center>
-        </div>
-
+          <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture.url%>)">
+            <center>
+              <h3><%= link_to restaurant.name, restaurant_path(restaurant.name) %></h3>
+            </center>
+          </div>
         </div>
       <% end %>
     </div>
@@ -34,3 +72,47 @@
     handler.getMap().setZoom(11)
   });
 </script>
+
+<script> 
+  (function ($) {
+    jQuery.expr[':'].Contains = function(a,i,m){
+        return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+    };
+                   
+    function listFilter(header, list) {
+      var form = $("<form>").attr({"class":"navbar-form navbar-left filterform","action":"#"}),
+      input = $("<input>").attr({"class":"form-control filterinput","type":"text"});
+      $(form).append(input).appendTo(header);
+                                     
+      $(input)
+        .change( function () {
+          var filter = $(this).val();
+          if(filter) {
+            $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
+            $(list).find("a:Contains(" + filter + ")").parent().slideDown();
+          } else {
+            $(list).find("li").slideDown();
+          }
+        return false;
+        })
+      .keyup( function () {
+        $(this).change();
+      });
+    }
+                      
+    $(function () {
+      listFilter($("#search-form"), $("#list"));
+    });
+  }(jQuery));
+</script>
+
+
+<div id="wrap"> 
+      <h1 id="header">TESTING JS</h1> 
+      <ul id="list"> 
+          <li><a href="#">Batman</a></li> 
+          <li><a href="#">Ice Age</a></li> 
+          <li><a href="#">Star Trek (2009)</a></li> 
+          <li><a href="#">Tremors</a></li> 
+      </ul> 
+    </div> 

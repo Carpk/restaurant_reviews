@@ -1,3 +1,36 @@
+<nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Restaurants", restaurants_path %></li>
+          <li><%= link_to "Reviews", reviews_path %></li>
+          <li class="active"><%= link_to "Lists", lists_path %></li>
+          <li><%= link_to "Food Tips", blogs_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Categories<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Tacos</a></li>
+              <li><a href="#">Pizza</a></li>
+              <li><a href="#">Tacos</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <div class="feature-box">
   <h3>Blogs</h3>
   <% @blogs.in_groups_of(4, false) do |blog_group| %>
