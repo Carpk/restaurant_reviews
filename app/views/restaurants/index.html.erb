@@ -26,7 +26,6 @@
               <li role="separator" class="divider"></li>
               <li><a href="#">Separated link</a></li>
             </ul>
-            <div id="search-form"></div>
             <!--<form class="navbar-form navbar-left filterform" role="search">
               <div class="form-group">
                 <input type="text" class="form-control filterinput" placeholder="Search">
@@ -34,6 +33,7 @@
               <button type="submit" class="btn btn-default">Submit</button>
             </form>-->
           </li>
+          <li id="search-form"></li>
         </ul>
       </div>
     </div>
@@ -53,11 +53,11 @@
       <div class="row">
         <% group.each do |restaurant| %>
           <div class="col-md-4">
-            <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture.url%>)">
-              <center>
-                <h3><%= link_to restaurant.name, restaurant_path(restaurant.name) %></h3>
-              </center>
-            </div>
+            <%= link_to(restaurant_path(restaurant.name)) do %>
+              <div class="img-bkgrnd" style="background-image: url(<%=restaurant.picture.url%>)"></div>
+              <h3><%= restaurant.name %></h3>
+              <p><%= restaurant.body %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -105,7 +105,7 @@
             $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
             $(list).find("a:Contains(" + filter + ")").parent().slideDown();
           } else {
-            $(list).find("li").slideDown();
+            $(list).find("div").slideDown();
           }
         return false;
         })
